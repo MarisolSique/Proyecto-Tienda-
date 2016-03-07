@@ -1,0 +1,4 @@
+Creando el proyecto
+- Application Name: Proyecto1
+- Project Name: Tiendita 
+- Default Package: client
