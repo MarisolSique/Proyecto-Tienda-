@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:a793bb7a-e1cc-487a-be7e-1cc65f0d9046'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Eliminar productos de una factura'
+   visibility='public'>
+  <subject href='urn:uuid:9a6d4ac1-d234-4910-9a51-7c13bee39fda'/>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:82e82639-c466-481f-9e24-8788b66bae61'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:0a8ab9b3-8b3b-4960-85b9-7cc227ca4843'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Eliminar productos de una factura'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:5ea61ba3-b65f-4340-8872-7edc2115eb4f'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

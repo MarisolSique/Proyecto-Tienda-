@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:9a6d4ac1-d234-4910-9a51-7c13bee39fda'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Manipulación de Productos'
+   visibility='public'>
+  <useCase href='urn:uuid:d56bd49c-bbc1-4638-8e52-d18560451b38'/>
+  <useCase href='urn:uuid:a793bb7a-e1cc-487a-be7e-1cc65f0d9046'/>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:dc60127b-f207-46f0-bd5e-5ed15987963e'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:253ddd93-66e1-48dc-81cc-36d66dc7ec11'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Manipulación de Productos'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:17235560-e34b-4c29-9ff1-684c6641440f'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>

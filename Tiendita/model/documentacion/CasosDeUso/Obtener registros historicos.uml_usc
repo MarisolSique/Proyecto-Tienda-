@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:5bf7d581-b22b-4df9-a033-3856cf4047c7'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Obtener registros historicos'
+   visibility='public'>
+  <subject href='urn:uuid:2205c3e2-35af-4003-a990-ab7a330f8a11'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:850b4124-850a-49f6-8aaa-0d9c270a4981'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Obtener registros historicos'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:c8109b9f-85e1-48c3-9c8e-2e706afbd5d8'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

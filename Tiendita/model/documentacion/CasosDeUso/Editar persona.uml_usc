@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:7b3b92d5-3b69-4870-aebc-825aa36f33c7'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Editar persona'
+   visibility='public'>
+  <subject href='urn:uuid:932c9936-9335-4ab0-939f-5eab74f02feb'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:ae82ee67-1dbe-43f4-96a7-e8f8d7195bdd'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Editar persona'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:aafe5b4e-1379-4cb3-85ec-f9dbe2f45d1f'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

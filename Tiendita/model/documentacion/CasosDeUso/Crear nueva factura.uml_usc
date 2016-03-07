@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:990073c7-d4f7-4057-9529-76c6bdeed8e7'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear nueva factura'
+   visibility='public'>
+  <subject href='urn:uuid:0d243b75-5ea6-4b37-a69b-941ea275860d'/>
+  <extend xmi:type='uml:Extend' xmi:uuid='urn:uuid:49f53279-1392-4f8b-a152-a90bd439a385'>
+   <extendedCase href='urn:uuid:a793bb7a-e1cc-487a-be7e-1cc65f0d9046'/>
+   <extensionLocation href='urn:uuid:82e82639-c466-481f-9e24-8788b66bae61'/>
+  </extend>
+  <include xmi:type='uml:Include' xmi:uuid='urn:uuid:45a9d0ca-7535-4c12-a942-1611f6d5a06d'>
+   <addition href='urn:uuid:d56bd49c-bbc1-4638-8e52-d18560451b38'/>
+  </include>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:e6072913-5a83-4b93-a72b-d2bcd5ca0139'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear nueva factura'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:be91df0b-8bbe-4d39-b76c-fa7770f8ea87'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

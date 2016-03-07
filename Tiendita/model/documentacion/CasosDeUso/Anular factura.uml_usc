@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:664a8b47-937c-4e8b-92be-3e4275b96124'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Anular factura'
+   visibility='public'>
+  <subject href='urn:uuid:0d243b75-5ea6-4b37-a69b-941ea275860d'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:075be8a7-735f-4778-a56d-9b01886a8ff1'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Anular factura'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:39597730-6ecb-457d-807b-21955fb2017f'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

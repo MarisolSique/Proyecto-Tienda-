@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Actor xmi:type='uml:Actor' xmi:uuid='urn:uuid:bfb61645-0324-48dc-9641-f2490077b1cf'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Cajero'
+   visibility='public'/>
+ <uml:Actor xmi:type='uml:Actor' xmi:uuid='urn:uuid:c8281a13-a111-463e-9251-8953559309bb'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Cajero'
+   visibility='public'/>
+</xmi:XMI>

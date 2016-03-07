@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:45e36036-b2a3-4883-9e6b-1b63b9b889b5'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear nuevo producto'
+   visibility='public'>
+  <subject href='urn:uuid:fb018182-872e-4f36-a7f5-33471accb0b7'/>
+  <include xmi:type='uml:Include' xmi:uuid='urn:uuid:6375f66d-43ad-4a51-9a4e-301e5bcd7dd7'>
+   <addition href='urn:uuid:f5a00071-509e-4d1d-a1ca-6a0867e89a82'/>
+  </include>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:5666abdb-e553-4d3d-9a0c-92f285bca0d2'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear nuevo producto'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:c80c41dd-721f-4410-9677-cbe2c78a496d'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

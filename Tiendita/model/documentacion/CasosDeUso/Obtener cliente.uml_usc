@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:7c088a32-adfa-4619-8502-8ac3acb11294'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Obtener cliente'
+   visibility='public'>
+  <subject href='urn:uuid:1ffbe64a-e8b5-428e-86c9-9d8fc43f4a1a'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:aa7e5b0e-0f5e-4553-a014-0af862cd1295'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Obtener cliente'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:245485b8-7a28-4346-86c5-e769b2cc6d46'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

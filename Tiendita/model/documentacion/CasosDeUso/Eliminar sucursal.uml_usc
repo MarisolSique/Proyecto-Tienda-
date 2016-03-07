@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:40f04ed4-cfda-47ce-ae59-6c88e8c02ec3'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Eliminar sucursal'
+   visibility='public'>
+  <subject href='urn:uuid:fe05b60b-d7ec-465d-9845-8b04c1dedcf4'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:8c2d4746-e6ca-4c08-91d1-d8d1ea9af74d'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Eliminar sucursal'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:d6585015-d054-4bda-9421-3c5b6d93e366'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

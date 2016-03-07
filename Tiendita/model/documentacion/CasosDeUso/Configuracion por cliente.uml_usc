@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:2636b9d9-1ac5-4b90-b0f5-a3ce429aebc9'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Configuracion por cliente'
+   visibility='public'>
+  <subject href='urn:uuid:756202d1-d1ac-43a6-9cbb-0c17042f4c76'/>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:c6be2340-089b-4585-8422-dae361c0af8a'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:18a98918-7088-4cda-b62e-8b8aaf5304e3'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Configuracion por cliente'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:823ee9e8-afc1-4e8e-bcf7-9e878b33a685'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

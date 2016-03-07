@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:9d6756e6-7c4a-418c-93eb-2322e40a70f0'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear usuario'
+   visibility='public'>
+  <subject href='urn:uuid:cf0ec0e9-9a72-4b64-b5c4-f9f146d022c8'/>
+  <include xmi:type='uml:Include' xmi:uuid='urn:uuid:3ccf745b-9a1d-44db-9291-b8abb8969bff'>
+   <addition href='urn:uuid:074dfb7d-27b5-4f7a-93ab-414714038b4a'/>
+  </include>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:5ff5671b-07e1-41da-9ee5-068aa7025cd7'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear usuario'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:36f3e641-f38d-4930-9002-6038762bf803'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:f5538953-349c-4bd1-b17e-69e9937740b2'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Agregar productos'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:6dde8eda-64c3-4193-a66a-c14ba512121e'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:1f29cfe0-0cec-4137-bede-fbead2d0d528'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Agregar productos'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:22b3048a-9f00-40dd-be3f-58b470c05118'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>

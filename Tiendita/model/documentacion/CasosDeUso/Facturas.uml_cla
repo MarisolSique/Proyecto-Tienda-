@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:0d243b75-5ea6-4b37-a69b-941ea275860d'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Facturas'
+   visibility='public'>
+  <useCase href='urn:uuid:990073c7-d4f7-4057-9529-76c6bdeed8e7'/>
+  <useCase href='urn:uuid:664a8b47-937c-4e8b-92be-3e4275b96124'/>
+  <useCase href='urn:uuid:8b2d3aad-2505-4393-a484-b102bc9d95bb'/>
+  <useCase href='urn:uuid:cf5936ea-dc20-4e71-987c-14c9ba49c918'/>
+  <useCase href='urn:uuid:9b534185-ae4b-4795-bc83-2c1b7cfac977'/>
+  <generalization xmi:type='uml:Generalization' xmi:uuid='urn:uuid:0c7f8db7-3b40-4b8b-a415-5e326d05966a'
+    isSubstitutable='true'>
+   <general href='urn:uuid:2205c3e2-35af-4003-a990-ab7a330f8a11'/>
+  </generalization>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:950f4454-cf4f-4e9a-934e-fd4b092bfa35'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:4228bd61-eb66-4c81-8526-8028a5072138'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Facturas'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:4118cd9f-cbea-4a30-81d9-dc1f9c32ece8'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>

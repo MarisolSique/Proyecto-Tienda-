@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:98f31bd2-7812-47b2-89df-7de230554f7f'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear cliente'
+   visibility='public'>
+  <subject href='urn:uuid:1ffbe64a-e8b5-428e-86c9-9d8fc43f4a1a'/>
+  <extend xmi:type='uml:Extend' xmi:uuid='urn:uuid:29af21b9-bbfc-463e-b9e6-ecac0188b522'>
+   <extendedCase href='urn:uuid:2636b9d9-1ac5-4b90-b0f5-a3ce429aebc9'/>
+   <extensionLocation href='urn:uuid:c6be2340-089b-4585-8422-dae361c0af8a'/>
+  </extend>
+  <include xmi:type='uml:Include' xmi:uuid='urn:uuid:3e5a6257-6d2e-4410-8188-e9f249aa5759'>
+   <addition href='urn:uuid:074dfb7d-27b5-4f7a-93ab-414714038b4a'/>
+  </include>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:6823785c-10cf-4a10-87c0-e42364f413f5'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Crear cliente'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:281fbf16-c544-4b1f-976e-f0ea5cfd5f76'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:1c118767-bb7c-4445-b5c4-9f3b24d9bb58'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Editar producto'
+   visibility='public'>
+  <subject href='urn:uuid:fb018182-872e-4f36-a7f5-33471accb0b7'/>
+ </uml:UseCase>
+ <uml:UseCase xmi:type='uml:UseCase' xmi:uuid='urn:uuid:bd6c7432-3811-4d75-81f0-9d4fc867ecce'
+   isAbstract='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Editar producto'
+   visibility='public'>
+  <extensionPoint xmi:type='uml:ExtensionPoint' xmi:uuid='urn:uuid:8e9112ba-4cef-4893-978d-9eec3ae207c6'
+    isLeaf='false'
+    name='DefaultExtensionPoint'/>
+ </uml:UseCase>
+</xmi:XMI>

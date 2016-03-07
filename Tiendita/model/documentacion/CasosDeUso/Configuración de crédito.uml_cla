@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:756202d1-d1ac-43a6-9cbb-0c17042f4c76'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Configuración de crédito'
+   visibility='public'>
+  <useCase href='urn:uuid:2636b9d9-1ac5-4b90-b0f5-a3ce429aebc9'/>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:258aa379-8a55-4e35-af26-52afc0a6e62f'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:dda885e7-3267-41ca-8eac-8e2c7bb8d254'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Configuración de crédito'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:64c7177f-e280-4b1a-b920-1de17772fe4c'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>

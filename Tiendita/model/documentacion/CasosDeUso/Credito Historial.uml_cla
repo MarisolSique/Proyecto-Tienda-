@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:2205c3e2-35af-4003-a990-ab7a330f8a11'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Credito Historial'
+   visibility='public'>
+  <useCase href='urn:uuid:9349148c-d3a8-4c7b-8fea-04fa29369e6a'/>
+  <useCase href='urn:uuid:5bf7d581-b22b-4df9-a033-3856cf4047c7'/>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:0b2ca7e3-d78b-4e1e-bdd7-3dfa6dfc2a06'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:750ea3ae-98a3-4fbd-9362-e83c959b3843'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Credito Historial'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:6543e78d-c467-44f6-a246-9e6372379b54'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>

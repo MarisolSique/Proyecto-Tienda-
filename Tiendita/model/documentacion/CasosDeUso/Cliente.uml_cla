@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:1ffbe64a-e8b5-428e-86c9-9d8fc43f4a1a'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Cliente'
+   visibility='public'>
+  <useCase href='urn:uuid:98f31bd2-7812-47b2-89df-7de230554f7f'/>
+  <useCase href='urn:uuid:f89cc70e-4e75-48f8-984a-f380771785d1'/>
+  <useCase href='urn:uuid:9513224e-eb36-4f6f-a5a0-b2adffd2d809'/>
+  <useCase href='urn:uuid:7c088a32-adfa-4619-8502-8ac3acb11294'/>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:2f09e4b4-3c2a-4b6f-ac53-c5fe5596a3fb'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:aaeca8ec-c8d3-4a64-933b-0cfb2890c145'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Cliente'
+   visibility='public'>
+  <ownedComment xmi:type='uml:Comment' xmi:uuid='urn:uuid:5279f577-9d38-4b9d-921c-bdec61072e18'
+    body='uml_uc:Subject'/>
+ </uml:Class>
+</xmi:XMI>
