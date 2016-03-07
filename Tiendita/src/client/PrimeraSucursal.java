@@ -30,6 +30,8 @@ public class PrimeraSucursal extends JFrame {
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(627, 412));
+        setLocationRelativeTo(null);
+        
         jLabel1.setText("Primera Sucursal");
         jLabel1.setBounds(new Rectangle(195, 25, 280, 30));
         jLabel1.setFont(new Font("Constantia", 0, 30));

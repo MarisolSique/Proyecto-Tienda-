@@ -24,6 +24,8 @@ public class CuartaSucursal extends JFrame {
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize( new Dimension(400, 300) );
+        setLocationRelativeTo(null);
+        
         jToggleButton1.setText("Regresar a Sucursales");
         jToggleButton1.setBounds(new Rectangle(210, 230, 165, 20));
         jToggleButton1.addActionListener(new ActionListener() {

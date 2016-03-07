@@ -24,7 +24,6 @@ public class Tiendita {
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.setVisible(true);
     }
-    
 
     public static void main(String[] args)
     {

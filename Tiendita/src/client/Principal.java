@@ -33,6 +33,7 @@ public class Principal extends JFrame {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(650, 437));
         this.setTitle("La Tiendita");
+        setLocationRelativeTo(null);
         
         jLabel1.setText("La Tiendita");
         jLabel1.setBounds(new Rectangle(195, 15, 260, 60));

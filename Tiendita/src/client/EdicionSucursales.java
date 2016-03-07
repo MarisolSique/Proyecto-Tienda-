@@ -24,6 +24,8 @@ public class EdicionSucursales extends JFrame {
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(605, 407));
+        setLocationRelativeTo(null);
+        
         jToggleButton1.setText("Regresar a Menu");
         jToggleButton1.setBounds(new Rectangle(445, 330, 140, 30));
         jToggleButton1.addActionListener(new ActionListener() {

@@ -16,5 +16,6 @@ public class ClientesNuevos extends JFrame {
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize( new Dimension(400, 300) );
+        setLocationRelativeTo(null);
     }
 }

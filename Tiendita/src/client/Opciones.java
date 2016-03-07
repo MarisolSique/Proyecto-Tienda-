@@ -37,11 +37,11 @@ public class Opciones extends JFrame {
 
     private void jbInit() throws Exception {
         
-        //setLocationRelativeTo(null);
-
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(610, 437));
         this.setTitle("Menú");
+        setLocationRelativeTo(null);
+        
         jLabel1.setText("¿Que desea realizar?");
         jLabel1.setBounds(new Rectangle(195, 15, 220, 35));
         jLabel1.setFont(new Font("Constantia", 0, 21));

@@ -25,10 +25,7 @@ public class Sucursales extends JFrame {
     private JToggleButton jToggleButton6 = new JToggleButton();
 
     public Sucursales() 
-    {
-        setLocationRelativeTo(null);
-        
-        
+    {       
         try 
         {
             jbInit();
@@ -43,7 +40,9 @@ public class Sucursales extends JFrame {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(447, 339));
         this.setTitle("Sucursales ");
-        jLabel1.setText("Escoga Sucursal que desea:");
+        setLocationRelativeTo(null);
+        
+        jLabel1.setText("Escoja Sucursal que desea:");
         jLabel1.setBounds(new Rectangle(90, 15, 265, 30));
         jLabel1.setFont(new Font("Constantia", 0, 20));
         jLabel1.setForeground(new Color(49, 49, 255));
