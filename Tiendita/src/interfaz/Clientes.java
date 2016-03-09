@@ -76,17 +76,17 @@ public class Clientes extends JFrame {
         scrollPane.setBounds(new Rectangle(45, 20, 615, 235));
 
         jButton2.setText("Nuevo usuario");
-        jButton2.setBounds(new Rectangle(555, 260, 105, 21));
-        jButton2.setSize(new Dimension(105, 21));
+        jButton2.setBounds(new Rectangle(540, 260, 120, 21));
+        jButton2.setSize(new Dimension(120, 21));
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jButton2_actionPerformed(e);
             }
         });
         jButton1.setText("Regresar...");
-        jButton1.setBounds(new Rectangle(440, 260, 105, 21));
+        jButton1.setBounds(new Rectangle(415, 260, 120, 21));
         jButton1.setActionCommand("");
-        jButton1.setSize(new Dimension(105, 21));
+        jButton1.setSize(new Dimension(120, 21));
         jButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jButton1_actionPerformed(e);
