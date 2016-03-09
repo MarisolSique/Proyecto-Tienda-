@@ -66,8 +66,13 @@ public class Opciones extends JFrame {
                     jToggleButton3_actionPerformed(e);
                 }
             });
-        jToggleButton4.setText("jToggleButton2");
+        jToggleButton4.setText("Clientes");
         jToggleButton4.setBounds(new Rectangle(40, 180, 105, 55));
+        jToggleButton4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jToggleButton4_actionPerformed(e);
+            }
+        });
         jToggleButton5.setText("jToggleButton2");
         jToggleButton5.setBounds(new Rectangle(270, 175, 105, 55));
         jToggleButton6.setText("jToggleButton2");
@@ -128,5 +133,11 @@ public class Opciones extends JFrame {
     private void jToggleButton8_actionPerformed(ActionEvent e)
     {
         System.exit(0);
+    }
+
+    private void jToggleButton4_actionPerformed(ActionEvent e) {
+        Clientes cli = new Clientes();
+        cli.setVisible(true);
+        this.dispose();
     }
 }

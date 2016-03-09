@@ -1,7 +1,7 @@
 package interfaz;
 
 
-public class m_usuario extends persona {
+public class m_usuario extends m_persona {
     /**
      * @attribute
      */

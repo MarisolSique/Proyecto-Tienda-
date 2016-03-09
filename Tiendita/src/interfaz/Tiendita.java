@@ -23,6 +23,7 @@ public class Tiendita {
         frame.setLocation( ( screenSize.width - frameSize.width ) / 2, ( screenSize.height - frameSize.height ) / 2 );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.setVisible(true);
+
     }
 
     public static void main(String[] args)

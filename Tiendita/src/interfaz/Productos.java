@@ -42,4 +42,5 @@ public class Productos extends JFrame {
         opc.setVisible(true);
         this.dispose();
     }
+
 }
