@@ -45,6 +45,11 @@ public class Facturación1sucursal extends JFrame {
         });
         jToggleButton3.setText("Reporte de facturas ");
         jToggleButton3.setBounds(new Rectangle(305, 60, 205, 50));
+        jToggleButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jToggleButton3_actionPerformed(e);
+            }
+        });
         this.getContentPane().add(jToggleButton3, null);
         this.getContentPane().add(jToggleButton2, null);
         this.getContentPane().add(jToggleButton1, null);
@@ -64,5 +69,11 @@ public class Facturación1sucursal extends JFrame {
         CreacionFacturaPrimeraSucursal fact = new CreacionFacturaPrimeraSucursal();
         fact.setVisible(true);
         this.dispose();
+    }
+
+    private void jToggleButton3_actionPerformed(ActionEvent e) {
+        ReporteFacturas1 rep = new ReporteFacturas1();
+        
+        
     }
 }
