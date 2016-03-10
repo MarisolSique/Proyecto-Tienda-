@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 
-public class EdicionCliente extends JFrame {
+public class ClientesEdicion extends JFrame {
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JLabel jLabel3 = new JLabel();
@@ -42,9 +42,10 @@ public class EdicionCliente extends JFrame {
     private ButtonGroup grupo2 = new ButtonGroup();
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
-    private Integer id;
+    private String id;
+    private Integer posicion;
 
-    public EdicionCliente() {
+    public ClientesEdicion() {
         try {
             jbInit();
         } catch (Exception e) {
@@ -114,9 +115,10 @@ public class EdicionCliente extends JFrame {
         jRadioButton4.setBounds(new Rectangle(225, 330, 55, 20));
 
         //Obtener y popular información
-            id = Clientes.id;
+            posicion = Clientes.posicion;
             m_cliente c = new m_cliente();
-            m_cliente cliente = c.obtenerCliente(id);
+            m_cliente cliente = c.obtenerCliente(posicion);
+            id = cliente.id;
         jTextField1.setText(cliente.nombre);
         jTextField2.setText(cliente.correo);
         jTextField3.setText(cliente.telefono);
@@ -186,7 +188,7 @@ public class EdicionCliente extends JFrame {
         if( validar.camposVacios(jTextField1,jTextField2,jTextField3,jTextField4) & validar.areasVacias(jTextArea1) & validar.correo(jTextField2) ){
             //Si valida, actualizar
             m_cliente cli = new m_cliente();
-            if( cli.editarCliente(id,nombre, correo, telefono, direccion, nit, usa_cheque, usa_credito, null) ){
+            if( cli.editarCliente(posicion,id,nombre, correo, telefono, direccion, nit, usa_cheque, usa_credito, null) ){
                 Clientes cliente = new Clientes();
                 cliente.setVisible(true);
                 this.dispose();

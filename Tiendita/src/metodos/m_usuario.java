@@ -1,45 +1,81 @@
 package interfaz;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.Vector;
 
-public class m_usuario extends m_persona {
+public class m_usuario{
     /**
      * @attribute
      */
-    private Boolean activo;
+    String id;
+     /**
+      * @attribute
+      */
+     String nombre;
+     /**
+      * @attribute
+      */
+     String correo;
+     /**
+      * @attribute
+      */
+     String contrasena;
+     /**
+      * @attribute
+      */
+     Boolean activo;
+     /**
+      * @attribute
+      */
+     String id_sucursal;
+
 
     /**
      * @attribute
      */
-    private int id_persona;
+    private static List<m_usuario> listaUsuarios = new ArrayList<m_usuario>();
 
-    /**
-     * @attribute
-     */
-    private int id;
-
-    /**
-     * @attribute
-     */
-    private int id_sucursal;
-
-    /**
-     * @attribute
-     */
-    private String contrasena;
-
-    public Boolean eliminarUsuario(Integer pid) {
-        return null;
+    public Boolean eliminarUsuario(Integer posicion) {
+        m_usuario miUsuarioActual = (m_usuario)listaUsuarios.get(posicion);       
+        return listaUsuarios.remove(miUsuarioActual);
     }
 
-    public Boolean editarUsuario(Integer pid, Integer sid, Boolean activo, String contrasena) {
-        return null;
+
+    public m_usuario obtenerUsuario(Integer posicion) {
+        return listaUsuarios.get(posicion);
     }
 
-    public Boolean obtenerUsuario(Integer pid) {
-        return null;
-    }
+    public Boolean editarUsuario(Integer posicion, String id, String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
 
-    public Boolean agregarUsuario(Integer pid, Integer sid, Boolean activo, String contrasena) {
-        return null;
+            m_usuario miUsuarioActual = new m_usuario();
+                miUsuarioActual.id = id;
+                miUsuarioActual.nombre = nombre;
+                miUsuarioActual.correo = correo;
+                miUsuarioActual.contrasena = contrasena;
+                miUsuarioActual.activo = activo;
+                miUsuarioActual.id_sucursal = id_sucursal;
+            
+                listaUsuarios.set(posicion,miUsuarioActual);
+
+        return true;
+    }
+    public Boolean agregarUsuario(String nombre, String correo, String contrasena, Boolean activo, int pos_sucursal) {
+
+        m_usuario miUsuario = new m_usuario();
+
+        miUsuario.id = UUID.randomUUID().toString();
+        miUsuario.nombre = nombre;
+        miUsuario.correo = correo;
+        miUsuario.contrasena = contrasena;
+        miUsuario.activo = activo;
+        miUsuario.id_sucursal = m_sucursal.getSucursalID(pos_sucursal);
+
+        return listaUsuarios.add(miUsuario);
+    }
+    
+    public static List getUsuarios(){
+        return listaUsuarios;
     }
 }

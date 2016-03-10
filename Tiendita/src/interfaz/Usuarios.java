@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.util.List;
-import java.util.ListIterator;
 
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
@@ -16,20 +15,19 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Clientes extends JFrame {
+public class Usuarios extends JFrame {
 
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
     private JButton jButton3 = new JButton();
     private JTable  jTable1  = new JTable();
     private JButton jButton4 = new JButton();
-    public static Integer posicion = -1;
+    public static Integer id = -1;
     private Button button1 = new Button();
 
-    public Clientes() {
+    public Usuarios() {
         try {
             jbInit();
         } catch (Exception e) {
@@ -49,27 +47,27 @@ public class Clientes extends JFrame {
         this.getContentPane().setLayout(null);
         this.setSize(new Dimension(692, 326));
 
-        this.setTitle("Listado de clientes");
+        this.setTitle("Listado de usuarios");
         
 
-        String[] columnNames = { "Nombre", "Correo", "NIT", "Cheque", "Crédito" };
+        String[] columnNames = { "Nombre", "Correo", "Activo", "Sucursal" };
         //Configuración tabla
             jTable1.setFillsViewportHeight(true);
         //Agregar títulos de columnas
             aModel.setColumnIdentifiers(columnNames);
         //Agregar filas
             
-            List listaClientes = m_cliente.getClientes();
-            int tLista = listaClientes.size();
+            List listaUsuarios = m_usuario.getUsuarios();
+            int tLista = listaUsuarios.size();
         if (tLista > 0) {            
                 for (int i = 0; i < tLista; i++) {
                     Object[] objects = new Object[5];
-                    m_cliente a = (m_cliente)listaClientes.get(i);
+                    m_usuario a = (m_usuario)listaUsuarios.get(i);
                     objects[0] = a.nombre;
                     objects[1] = a.correo;
-                    objects[2] = a.nit;
-                    objects[3] = a.usa_cheque;
-                    objects[4] = a.usa_credito;
+                    objects[2] = a.contrasena;
+                    objects[3] = a.activo;
+                    objects[4] = a.id_sucursal;
                     aModel.addRow(objects);
                 }
         }else{
@@ -86,7 +84,7 @@ public class Clientes extends JFrame {
         scrollPane.setBounds(new Rectangle(38, 20, 615, 235));
 
         button1.setLabel("button1");
-        jButton4.setText("Eliminar cliente");
+        jButton4.setText("Eliminar usuario");
         jButton4.setBounds(new Rectangle(305, 260, 110, 21));
         jButton4.setSize(new Dimension(110, 21));
         jButton4.addActionListener(new ActionListener() {
@@ -94,7 +92,7 @@ public class Clientes extends JFrame {
                 jButton4_actionPerformed(e);
             }
         });
-        jButton3.setText("Editar cliente");
+        jButton3.setText("Editar usuario");
         jButton3.setBounds(new Rectangle(424, 260, 110, 21));
         jButton3.setSize(new Dimension(110, 21));
         jButton3.addActionListener(new ActionListener() {
@@ -102,7 +100,7 @@ public class Clientes extends JFrame {
                 jButton3_actionPerformed(e);
             }
         });
-        jButton2.setText("Nuevo cliente");
+        jButton2.setText("Nuevo usuario");
         jButton2.setBounds(new Rectangle(543, 260, 110, 21));
         jButton2.setSize(new Dimension(110, 21));
         jButton2.addActionListener(new ActionListener() {
@@ -137,28 +135,28 @@ public class Clientes extends JFrame {
     }
 
     private void jButton2_actionPerformed(ActionEvent e) {
-        ClientesNuevos cli = new ClientesNuevos();
-        cli.setVisible(true);
+        UsuariosNuevos usr = new UsuariosNuevos();
+        usr.setVisible(true);
         this.dispose();
     }
 
     private void jButton3_actionPerformed(ActionEvent e) {
-        posicion = jTable1.getSelectedRow();
-        if(posicion>=0){
-            ClientesEdicion cli = new ClientesEdicion();
-            cli.setVisible(true);
+        id = jTable1.getSelectedRow();
+        if(id>=0){
+            UsuariosEdicion usr = new UsuariosEdicion();
+            usr.setVisible(true);
             this.dispose();
         }
     }
 
     private void jButton4_actionPerformed(ActionEvent e) {
-        posicion = jTable1.getSelectedRow();
-        if(posicion>=0){
-            m_cliente cli = new m_cliente();
-            if( cli.eliminarCliente(posicion) ){
-                aModel.removeRow(posicion);
+        id = jTable1.getSelectedRow();
+        if(id>=0){
+            m_usuario usr = new m_usuario();
+            if( usr.eliminarUsuario(id) ){
+                aModel.removeRow(id);
             }else{
-                JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el cliente.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el usuario.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
             }
         }
     }

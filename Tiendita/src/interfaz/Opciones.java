@@ -117,7 +117,7 @@ public class Opciones extends JFrame {
 
     private void jToggleButton3_actionPerformed(ActionEvent e) 
     {
-        EdicionUsuarios users=  new EdicionUsuarios();
+        Usuarios users =  new Usuarios();
         users.setVisible(true);
         this.dispose();
     }

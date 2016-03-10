@@ -2,9 +2,14 @@ package interfaz;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
 
-public class m_cliente extends m_persona {
+public class m_cliente {
+    /**
+     * @attribute
+     */
+    String id;
      /**
       * @attribute
       */
@@ -36,30 +41,15 @@ public class m_cliente extends m_persona {
     /**
      * @attribute
      */
-    private Vector credito;
-
-    /**
-     * @attribute
-     */
-    private int id_persona;
-
-    /**
-     * @attribute
-     */
-    private int id;
-
-    /**
-     * @attribute
-     */    
-    public List<m_cliente> misClientes;
+    private Vector credito; 
 
     /**
      * @attribute
      */
     private static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
 
-    public Boolean eliminarCliente(Integer id) {
-        m_cliente miClienteActual = (m_cliente)listaClientes.get(id);       
+    public Boolean eliminarCliente(Integer posicion) {
+        m_cliente miClienteActual = (m_cliente)listaClientes.get(posicion);       
         return listaClientes.remove(miClienteActual);
     }
 
@@ -68,9 +58,10 @@ public class m_cliente extends m_persona {
         return listaClientes.get(posicion);
     }
 
-    public Boolean editarCliente(Integer id, String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
+    public Boolean editarCliente(Integer posicion, String id, String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
 
             m_cliente miClienteActual = new m_cliente();
+                miClienteActual.id = id;
                 miClienteActual.nombre = nombre;
                 miClienteActual.correo = correo;
                 miClienteActual.telefono = telefono;
@@ -79,7 +70,7 @@ public class m_cliente extends m_persona {
                 miClienteActual.usa_cheque = usa_cheque;
                 miClienteActual.usa_credito = usa_credito;
             
-                listaClientes.set(id,miClienteActual);
+                listaClientes.set(posicion,miClienteActual);
 
         return true;
     }
@@ -87,6 +78,7 @@ public class m_cliente extends m_persona {
 
         m_cliente micliente = new m_cliente();
 
+        micliente.id = UUID.randomUUID().toString();
         micliente.nombre = nombre;
         micliente.correo = correo;
         micliente.telefono = telefono;
@@ -100,5 +92,17 @@ public class m_cliente extends m_persona {
     
     public static List getClientes(){
         return listaClientes;
+    }
+
+    public List getNombresClientes(){
+
+        m_cliente micliente = new m_cliente();
+        List<m_cliente> listaNombres = new ArrayList<m_cliente>();
+
+        for(int posicion = 0; posicion < listaClientes.size(); posicion++) {
+            micliente.nombre = listaClientes.get(posicion).nombre;
+            listaNombres.add(micliente);
+        }
+        return listaNombres;
     }
 }

@@ -16,7 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 
-public class EdicionUsuarios extends JFrame {
+public class UsuariosEdicion extends JFrame {
     private JToggleButton jToggleButton1 = new JToggleButton();
     private JTable jTable1 = new JTable();
     private JToggleButton jToggleButton2 = new JToggleButton();
@@ -26,7 +26,7 @@ public class EdicionUsuarios extends JFrame {
     private JEditorPane jEditorPane1 = new JEditorPane();
     private JToggleButton jToggleButton5 = new JToggleButton();
 
-    public EdicionUsuarios() {
+    public UsuariosEdicion() {
         try {
             jbInit();
         } catch (Exception e) {
