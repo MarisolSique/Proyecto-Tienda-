@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 
@@ -15,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Clientes extends JFrame {
@@ -26,6 +28,8 @@ public class Clientes extends JFrame {
     private JButton jButton4 = new JButton();
     public static Integer id = -1;
     private JEditorPane jEditorPane1 = new JEditorPane();
+    private Button button1 = new Button();
+    private Button button2 = new Button();
 
     public Clientes() {
         try {
@@ -83,6 +87,14 @@ public class Clientes extends JFrame {
         scrollPane.setBounds(new Rectangle(20, 320, 615, 235));
         scrollPane.setBounds(new Rectangle(38, 20, 615, 235));
 
+        button2.setLabel("button2");
+        button2.setBounds(new Rectangle(225, 260, 72, 21));
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                button2_actionPerformed(e);
+            }
+        });
+        button1.setLabel("button1");
         jButton4.setText("Eliminar cliente");
         jButton4.setBounds(new Rectangle(305, 260, 110, 21));
         jButton4.setSize(new Dimension(110, 21));
@@ -118,6 +130,7 @@ public class Clientes extends JFrame {
         });
         scrollPane.setSize(615, 235);
 
+        this.getContentPane().add(button2, null);
         this.getContentPane().add(jButton4, null);
         this.getContentPane().add(jButton3, null);
         this.getContentPane().add(jButton2, null);
@@ -158,5 +171,11 @@ public class Clientes extends JFrame {
                 JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el usuario.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
             }
         }
+    }
+
+    private void button2_actionPerformed(ActionEvent e) {
+        JTextField nnn = new JTextField();
+        nnn.setText("6647912-K");
+        validar.nit(nnn);
     }
 }

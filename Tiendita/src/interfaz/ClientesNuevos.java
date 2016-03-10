@@ -174,7 +174,7 @@ public class ClientesNuevos extends JFrame {
         Boolean usa_credito = jRadioButton3.isSelected();
         
         //Validar
-        if( validar.camposVacios(jTextField1,jTextField2,jTextField3,jTextField4) & validar.areasVacias(jTextArea1) & validar.correo(jTextField2) ){
+        if( validar.camposVacios(jTextField1,jTextField2,jTextField3,jTextField4) & validar.areasVacias(jTextArea1) & validar.correo(jTextField2) & validar.nit(jTextField4) ){
             //Si valida, guardar
             m_cliente cli = new m_cliente();
             if( cli.agregarCliente(nombre, correo, telefono, direccion, nit, usa_cheque, usa_credito, null) ){

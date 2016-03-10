@@ -1,0 +1,18 @@
+Generales
+    - Verificar que los campos requeridos no estén vacíos
+    
+Usuarios/Clientes
+    - Validar formato de direcciones de correo
+    - Validar formato de NIT
+        /********* TO-DO *********/
+            - Verificar que no hayan usuarios duplicados
+Productos
+    -
+        /********* TO-DO *********/
+            - No se deben ingresar códigos repetidos
+
+Facturación
+    -
+        /********* TO-DO *********/
+            - Campo de NIT no debe estar vacío
+            - Validar que la venta, si es a crédito, no sobrepase el límite asignado al cliente
