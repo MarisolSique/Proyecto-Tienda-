@@ -93,6 +93,11 @@ public class ClientesNuevos extends JFrame {
         jLabel7.setFont(new Font("Tahoma", 1, 13));
         jTextField1.setBounds(new Rectangle(150, 35, 200, 20));
         jTextField1.setSize(new Dimension(200, 20));
+        jTextField1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jTextField1_actionPerformed(e);
+            }
+        });
         jTextField2.setBounds(new Rectangle(150, 80, 200, 20));
         jTextField2.setSize(new Dimension(200, 20));
         jTextField3.setBounds(new Rectangle(150, 125, 200, 20));
@@ -179,5 +184,8 @@ public class ClientesNuevos extends JFrame {
             }
         }
         
+    }
+
+    private void jTextField1_actionPerformed(ActionEvent e) {
     }
 }

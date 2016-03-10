@@ -18,6 +18,7 @@ public class PrimeraSucursal extends JFrame {
     private JToggleButton jToggleButton1 = new JToggleButton();
     private JToggleButton jToggleButton2 = new JToggleButton();
     private JToggleButton jToggleButton3 = new JToggleButton();
+    private JToggleButton jToggleButton4 = new JToggleButton();
 
     public PrimeraSucursal() {
         try {
@@ -36,8 +37,8 @@ public class PrimeraSucursal extends JFrame {
         jLabel1.setBounds(new Rectangle(195, 25, 280, 30));
         jLabel1.setFont(new Font("Constantia", 0, 30));
         jLabel1.setForeground(new Color(0, 132, 198));
-        jToggleButton1.setText("Cliente Nuevo ");
-        jToggleButton1.setBounds(new Rectangle(40, 80, 110, 60));
+        jToggleButton1.setText("Clientes");
+        jToggleButton1.setBounds(new Rectangle(40, 80, 150, 60));
         jToggleButton1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     jToggleButton1_actionPerformed(e);
@@ -51,20 +52,53 @@ public class PrimeraSucursal extends JFrame {
                 }
             });
         jToggleButton3.setText("Facturación");
-        jToggleButton3.setBounds(new Rectangle(250, 80, 115, 60));
+        jToggleButton3.setBounds(new Rectangle(220, 80, 150, 60));
+        jToggleButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jToggleButton3_actionPerformed(e);
+            }
+        });
+        jToggleButton4.setText("Productos");
+        jToggleButton4.setBounds(new Rectangle(395, 80, 185, 55));
+        jToggleButton4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jToggleButton4_actionPerformed(e);
+            }
+        });
+        this.getContentPane().add(jToggleButton4, null);
         this.getContentPane().add(jToggleButton3, null);
         this.getContentPane().add(jToggleButton2, null);
         this.getContentPane().add(jToggleButton1, null);
         this.getContentPane().add(jLabel1, null);
     }
 
-    private void jToggleButton1_actionPerformed(ActionEvent e) {
+    private void jToggleButton1_actionPerformed(ActionEvent e)
+    {
+        
+        ClientesPrimeraSucursal sucurs = new ClientesPrimeraSucursal();
+        sucurs.setVisible(true);
+        this.dispose();
     }
 
     private void jToggleButton2_actionPerformed(ActionEvent e) 
     {
         Sucursales sucu = new Sucursales();
         sucu.setVisible(true);
+        this.dispose();
+    }
+
+    private void jToggleButton3_actionPerformed(ActionEvent e)
+    {
+        Facturación1sucursal fact = new Facturación1sucursal();
+        fact.setVisible(true);
+        this.dispose();
+        
+    }
+
+    private void jToggleButton4_actionPerformed(ActionEvent e) {
+        
+      Productos1Sucursal  produc = new Productos1Sucursal();
+        produc.setVisible(true);
         this.dispose();
     }
 }

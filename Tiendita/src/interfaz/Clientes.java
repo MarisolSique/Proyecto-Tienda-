@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -24,6 +25,7 @@ public class Clientes extends JFrame {
     private JTable  jTable1  = new JTable();
     private JButton jButton4 = new JButton();
     public static Integer id = -1;
+    private JEditorPane jEditorPane1 = new JEditorPane();
 
     public Clientes() {
         try {
