@@ -56,48 +56,37 @@ public class m_cliente extends m_persona {
     /**
      * @attribute
      */
-    public static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
+    private static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
 
-    public Boolean eliminarCliente(Integer pid) {
-        Boolean respuesta = false;
-        for(int posicion = 0; posicion <= misClientes.size(); posicion++) {
-            m_cliente miClienteActual = (m_cliente)misClientes.get(posicion);
-            if(miClienteActual.id == pid) {
-                respuesta = misClientes.remove(miClienteActual);
-            }
-        }
-        return respuesta;
+    public Boolean eliminarCliente(Integer id) {
+        m_cliente miClienteActual = (m_cliente)listaClientes.get(id);       
+        return listaClientes.remove(miClienteActual);
     }
 
 
-    public m_cliente obtenerCliente(Integer pid) {
-        m_cliente datos;
-        datos = null;
-        for(int posicion = 0; posicion <= misClientes.size(); posicion++) {
-            m_cliente miClienteActual = (m_cliente)misClientes.get(posicion);
-            if(miClienteActual.id == pid) {
-                datos = miClienteActual;
-            }
-        }
-        return datos;
+    public m_cliente obtenerCliente(Integer posicion) {
+        return listaClientes.get(posicion);
     }
 
-    public Boolean editarCliente(Integer pid, Integer nit, Boolean cheque, Boolean credito, Vector datos_credito) {
-        /*for(int posicion = 0; posicion <= misClientes.size(); posicion++) {
-            m_cliente miClienteActual = (m_cliente)misClientes.get(posicion);
-            if(miClienteActual.id == pid) 
-            {
-                miClienteActual.usa_cheque = cheque;
-                miClienteActual.usa_credito = credito;
-            }
-        }*/
-        return null;
+    public Boolean editarCliente(Integer id, String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
+
+            m_cliente miClienteActual = new m_cliente();
+                miClienteActual.nombre = nombre;
+                miClienteActual.correo = correo;
+                miClienteActual.telefono = telefono;
+                miClienteActual.direccion = direccion;
+                miClienteActual.nit = nit;
+                miClienteActual.usa_cheque = usa_cheque;
+                miClienteActual.usa_credito = usa_credito;
+            
+                listaClientes.set(id,miClienteActual);
+
+        return true;
     }
     public Boolean agregarCliente(String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
 
         m_cliente micliente = new m_cliente();
-        
-        //micliente.id = pid;
+
         micliente.nombre = nombre;
         micliente.correo = correo;
         micliente.telefono = telefono;
@@ -113,4 +102,3 @@ public class m_cliente extends m_persona {
         return listaClientes;
     }
 }
-//comentario yordanny

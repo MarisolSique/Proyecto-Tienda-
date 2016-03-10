@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Rectangle;
 
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 
-public class ClientesNuevos extends JFrame {
+public class EdicionCliente extends JFrame {
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JLabel jLabel3 = new JLabel();
@@ -43,8 +42,9 @@ public class ClientesNuevos extends JFrame {
     private ButtonGroup grupo2 = new ButtonGroup();
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
+    private Integer id;
 
-    public ClientesNuevos() {
+    public EdicionCliente() {
         try {
             jbInit();
         } catch (Exception e) {
@@ -55,7 +55,10 @@ public class ClientesNuevos extends JFrame {
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(432, 461));
-        this.setTitle("Crear cliente nuevo");
+        this.setTitle("Actualizar datos de cliente");
+        
+        
+        //Definir campos
         jLabel1.setText("Nombre:");
         jLabel1.setBounds(new Rectangle(20, 37, 120, 16));
         jLabel1.setSize(new Dimension(120, 16));
@@ -105,12 +108,23 @@ public class ClientesNuevos extends JFrame {
         jRadioButton1.setBounds(new Rectangle(155, 290, 50, 20));
         jRadioButton2.setText("No");
         jRadioButton2.setBounds(new Rectangle(227, 290, 50, 20));
-        jRadioButton2.setSelected(true);
         jRadioButton3.setText("S\u00ed");
         jRadioButton3.setBounds(new Rectangle(155, 330, 50, 20));
         jRadioButton4.setText("No");
         jRadioButton4.setBounds(new Rectangle(225, 330, 55, 20));
-        jRadioButton4.setSelected(true);
+
+        //Obtener y popular información
+            id = Clientes.id;
+            m_cliente c = new m_cliente();
+            m_cliente cliente = c.obtenerCliente(id);
+        jTextField1.setText(cliente.nombre);
+        jTextField2.setText(cliente.correo);
+        jTextField3.setText(cliente.telefono);
+        jTextArea1.setText(cliente.direccion);
+        jTextField4.setText(cliente.nit);
+        if(cliente.usa_cheque){ jRadioButton1.setSelected(true); }else{ jRadioButton2.setSelected(true); }
+        if(cliente.usa_credito){ jRadioButton3.setSelected(true); }else{ jRadioButton4.setSelected(true); }
+        
         jButton1.setText("Regresar ...");
         jButton1.setBounds(new Rectangle(35, 370, 105, 22));
         jButton1.setSize(new Dimension(105, 22));
@@ -170,9 +184,9 @@ public class ClientesNuevos extends JFrame {
         
         //Validar
         if( validar.camposVacios(jTextField1,jTextField2,jTextField3,jTextField4) & validar.areasVacias(jTextArea1) & validar.correo(jTextField2) ){
-            //Si valida, guardar
+            //Si valida, actualizar
             m_cliente cli = new m_cliente();
-            if( cli.agregarCliente(nombre, correo, telefono, direccion, nit, usa_cheque, usa_credito, null) ){
+            if( cli.editarCliente(id,nombre, correo, telefono, direccion, nit, usa_cheque, usa_credito, null) ){
                 Clientes cliente = new Clientes();
                 cliente.setVisible(true);
                 this.dispose();
