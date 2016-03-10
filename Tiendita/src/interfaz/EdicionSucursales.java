@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JToggleButton;
+import javax.swing.table.DefaultTableModel;
 
 public class EdicionSucursales extends JFrame {
     private JToggleButton jToggleButton1 = new JToggleButton();
@@ -20,12 +21,19 @@ public class EdicionSucursales extends JFrame {
             e.printStackTrace();
         }
     }
-
+    DefaultTableModel aModel = new DefaultTableModel() {
+    public boolean isCellEditable(int row, int column) {
+        return false;
+    }
+    };
+        
     private void jbInit() throws Exception {
         this.getContentPane().setLayout( null );
         this.setSize(new Dimension(605, 407));
-        setLocationRelativeTo(null);
-        
+       
+       this.setTitle("Sucursales");
+      
+       String[] columnNames = {"Sucursal"};
         jToggleButton1.setText("Regresar a Menu");
         jToggleButton1.setBounds(new Rectangle(445, 330, 140, 30));
         jToggleButton1.addActionListener(new ActionListener() {
@@ -34,6 +42,8 @@ public class EdicionSucursales extends JFrame {
                 }
             });
         this.getContentPane().add(jToggleButton1, null);
+        
+        setLocationRelativeTo(null);
     }
 
     private void jToggleButton1_actionPerformed(ActionEvent e)

@@ -19,8 +19,6 @@ public class Opciones extends JFrame {
     private JToggleButton jToggleButton2 = new JToggleButton();
     private JToggleButton jToggleButton3 = new JToggleButton();
     private JToggleButton jToggleButton4 = new JToggleButton();
-    private JToggleButton jToggleButton5 = new JToggleButton();
-    private JToggleButton jToggleButton6 = new JToggleButton();
     private JToggleButton jToggleButton7 = new JToggleButton();
     private JToggleButton jToggleButton8 = new JToggleButton();
 
@@ -46,37 +44,33 @@ public class Opciones extends JFrame {
         jLabel1.setBounds(new Rectangle(195, 15, 220, 35));
         jLabel1.setFont(new Font("Constantia", 0, 21));
         jToggleButton1.setText("Edición de Sucursales");
-        jToggleButton1.setBounds(new Rectangle(30, 75, 150, 55));
+        jToggleButton1.setBounds(new Rectangle(120, 75, 150, 55));
         jToggleButton1.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     jToggleButton1_actionPerformed(e);
                 }
             });
         jToggleButton2.setText("Productos");
-        jToggleButton2.setBounds(new Rectangle(235, 75, 150, 55));
+        jToggleButton2.setBounds(new Rectangle(325, 75, 150, 55));
         jToggleButton2.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     jToggleButton2_actionPerformed(e);
                 }
             });
         jToggleButton3.setText("Edición de Usuarios");
-        jToggleButton3.setBounds(new Rectangle(420, 75, 150, 55));
+        jToggleButton3.setBounds(new Rectangle(325, 145, 150, 55));
         jToggleButton3.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     jToggleButton3_actionPerformed(e);
                 }
             });
         jToggleButton4.setText("Clientes");
-        jToggleButton4.setBounds(new Rectangle(40, 180, 105, 55));
+        jToggleButton4.setBounds(new Rectangle(120, 145, 150, 55));
         jToggleButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jToggleButton4_actionPerformed(e);
             }
         });
-        jToggleButton5.setText("jToggleButton2");
-        jToggleButton5.setBounds(new Rectangle(270, 175, 105, 55));
-        jToggleButton6.setText("jToggleButton2");
-        jToggleButton6.setBounds(new Rectangle(460, 180, 105, 55));
         jToggleButton7.setText("Ir a Sucursales");
         jToggleButton7.setBounds(new Rectangle(395, 345, 190, 40));
         jToggleButton7.addActionListener(new ActionListener() {
@@ -93,8 +87,6 @@ public class Opciones extends JFrame {
             });
         this.getContentPane().add(jToggleButton8, null);
         this.getContentPane().add(jToggleButton7, null);
-        this.getContentPane().add(jToggleButton6, null);
-        this.getContentPane().add(jToggleButton5, null);
         this.getContentPane().add(jToggleButton4, null);
         this.getContentPane().add(jToggleButton3, null);
         this.getContentPane().add(jToggleButton2, null);
