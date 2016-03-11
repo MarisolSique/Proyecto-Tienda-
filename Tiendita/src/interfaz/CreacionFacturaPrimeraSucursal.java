@@ -1,6 +1,6 @@
 
 package interfaz;
-
+import metodos.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -10,6 +10,9 @@ import java.awt.SystemColor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
@@ -24,14 +27,17 @@ import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 
+import metodos.m_cliente;
+
 public class CreacionFacturaPrimeraSucursal extends JFrame {
 
-
+    m_productos prod = new m_productos();
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JTable jTable1 = new JTable();
@@ -43,9 +49,7 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
     private JLabel jLabel7 = new JLabel();
     private JLabel jLabel8 = new JLabel();
     private JLabel jLabel9 = new JLabel();
-    private JTextArea jTextArea1 = new JTextArea();
     private JTextArea jTextArea2 = new JTextArea();
-    private JTextArea jTextArea3 = new JTextArea();
     private JSeparator jSeparator2 = new JSeparator();
     private JSeparator jSeparator3 = new JSeparator();
     private JTextArea jTextArea4 = new JTextArea();
@@ -56,7 +60,6 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
     private JSeparator jSeparator5 = new JSeparator();
     private JSeparator jSeparator6 = new JSeparator();
     private JSeparator jSeparator7 = new JSeparator();
-    private JTextArea jTextArea7 = new JTextArea();
     private JTextArea jTextArea8 = new JTextArea();
     private JTextArea jTextArea9 = new JTextArea();
     private JTextArea jTextArea10 = new JTextArea();
@@ -72,6 +75,17 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
     private JTextArea jTextArea11 = new JTextArea();
     private JLabel jLabel14 = new JLabel();
     private JTextArea jTextArea12 = new JTextArea();
+    private JComboBox jComboBox1 = new JComboBox();
+    private JComboBox jComboBox2 = new JComboBox();
+    private JComboBox jComboBox3 = new JComboBox();
+    private JComboBox jComboBox4 = new JComboBox();
+    private JTextField jTextField1 = new JTextField();
+    private JTextField jTextField2 = new JTextField();
+    private JTextField jTextField3 = new JTextField();
+    private JLabel jLabel15 = new JLabel();
+    private JTextField jTextField4 = new JTextField();
+    private JTextField jTextField5 = new JTextField();
+    private JTextField jTextField6 = new JTextField();
 
     public CreacionFacturaPrimeraSucursal() {
         try {
@@ -121,14 +135,9 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         jLabel9.setText("NIT:");
         jLabel9.setBounds(new Rectangle(375, 240, 70, 25));
         jLabel9.setFont(new Font("Constantia", 0, 13));
-        jTextArea1.setBounds(new Rectangle(90, 170, 515, 25));
-        jTextArea1.setBackground(new Color(215, 215, 215));
         jTextArea2.setBounds(new Rectangle(120, 205, 485, 25));
         jTextArea2.setCaretColor(SystemColor.activeCaptionBorder);
         jTextArea2.setBackground(new Color(215, 215, 215));
-        jTextArea3.setBounds(new Rectangle(30, 310, 380, 165));
-        jTextArea3.setBackground(new Color(215, 215, 215));
-        jTextArea3.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
         jSeparator2.setBounds(new Rectangle(30, 160, 585, 2));
         jSeparator3.setBounds(new Rectangle(370, 210, 0, 2));
         jTextArea4.setBounds(new Rectangle(360, 135, 80, 25));
@@ -147,9 +156,6 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         jSeparator5.setBounds(new Rectangle(105, 425, 0, 2));
         jSeparator6.setBounds(new Rectangle(30, 270, 580, 2));
         jSeparator7.setBounds(new Rectangle(30, 305, 580, 2));
-        jTextArea7.setBounds(new Rectangle(410, 310, 200, 165));
-        jTextArea7.setBackground(new Color(215, 215, 215));
-        jTextArea7.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
         jTextArea8.setBounds(new Rectangle(415, 240, 190, 25));
         jTextArea8.setCaretColor(SystemColor.activeCaptionBorder);
         jTextArea8.setBackground(new Color(215, 215, 215));
@@ -178,6 +184,11 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         jToggleButton2.setBounds(new Rectangle(405, 580, 107, 21));
         jToggleButton3.setText("Guardar");
         jToggleButton3.setBounds(new Rectangle(525, 580, 107, 21));
+        jToggleButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jToggleButton3_actionPerformed(e);
+            }
+        });
         jRadioButton1.setText("Efectivo");
         jRadioButton1.setBounds(new Rectangle(505, 510, 105, 25));
         jRadioButton2.setText("Credito");
@@ -196,6 +207,56 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         jTextArea12.setCaretColor(SystemColor.activeCaptionBorder);
         jTextArea12.setBackground(new Color(215, 215, 215));
         jTextArea12.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+        jComboBox1.setBounds(new Rectangle(120, 175, 485, 20));
+
+        jComboBox2.setBounds(new Rectangle(90, 315, 350, 20));
+        jComboBox3.setBounds(new Rectangle(90, 355, 350, 20));
+        jComboBox4.setBounds(new Rectangle(90, 395, 350, 20));
+        jTextField1.setBounds(new Rectangle(460, 315, 145, 20));
+        jTextField2.setBounds(new Rectangle(460, 355, 145, 20));
+        jTextField3.setBounds(new Rectangle(460, 395, 145, 20));
+        jLabel15.setText("                          DESCRIPCION                                                           TOTAL");
+        jLabel15.setBounds(new Rectangle(35, 285, 575, 25));
+        jLabel15.setFont(new Font("Constantia", 1, 15));
+        jTextField4.setBounds(new Rectangle(25, 315, 35, 20));
+        jTextField4.setText("1");
+        jTextField5.setBounds(new Rectangle(25, 355, 35, 20));
+        jTextField5.setText("1");
+        jTextField6.setBounds(new Rectangle(25, 400, 35, 20));
+        jTextField6.setText("1");
+        m_cliente cli = new m_cliente();
+        List<m_cliente> listaClientes = cli.getNombresClientes();
+        if(listaClientes != null) {
+            for(int posicion=0; posicion <listaClientes.size(); posicion++) {
+                jComboBox1.addItem(listaClientes.get(posicion).nombre);
+            }
+        }
+        
+       
+        prod.agregarProducto(1, "1", "producto1", 10.00f);
+        prod.agregarProducto(2, "2", "producto2", 15.00f);
+        List<String> listaProductos = prod.getNombresProductos();
+        if(listaProductos != null) {
+            jComboBox2.addItem(null);
+            jComboBox3.addItem(null);
+            jComboBox4.addItem(null);
+            for(int posicion = 0; posicion <listaProductos.size(); posicion++) {
+                jComboBox2.addItem(listaProductos.get(posicion));
+                jComboBox3.addItem(listaProductos.get(posicion));
+                jComboBox4.addItem(listaProductos.get(posicion));
+            }
+        }
+        this.getContentPane().add(jTextField6, null);
+        this.getContentPane().add(jTextField5, null);
+        this.getContentPane().add(jTextField4, null);
+        this.getContentPane().add(jLabel15, null);
+        this.getContentPane().add(jTextField3, null);
+        this.getContentPane().add(jTextField2, null);
+        this.getContentPane().add(jTextField1, null);
+        this.getContentPane().add(jComboBox4, null);
+        this.getContentPane().add(jComboBox3, null);
+        this.getContentPane().add(jComboBox2, null);
+        this.getContentPane().add(jComboBox1, null);
         this.getContentPane().add(jTextArea12, null);
         this.getContentPane().add(jLabel14, null);
         this.getContentPane().add(jTextArea11, null);
@@ -211,7 +272,6 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         this.getContentPane().add(jTextArea10, null);
         this.getContentPane().add(jTextArea9, null);
         this.getContentPane().add(jTextArea8, null);
-        this.getContentPane().add(jTextArea7, null);
         this.getContentPane().add(jSeparator7, null);
         this.getContentPane().add(jSeparator6, null);
         this.getContentPane().add(jSeparator5, null);
@@ -222,9 +282,7 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         this.getContentPane().add(jTextArea4, null);
         this.getContentPane().add(jSeparator3, null);
         this.getContentPane().add(jSeparator2, null);
-        this.getContentPane().add(jTextArea3, null);
         this.getContentPane().add(jTextArea2, null);
-        this.getContentPane().add(jTextArea1, null);
         this.getContentPane().add(jLabel9, null);
         this.getContentPane().add(jLabel8, null);
         this.getContentPane().add(jLabel7, null);
@@ -244,5 +302,47 @@ public class CreacionFacturaPrimeraSucursal extends JFrame {
         Facturación1sucursal fact = new Facturación1sucursal();
         fact.setVisible(true);
         this.dispose();
+    }
+
+    private void jToggleButton3_actionPerformed(ActionEvent e) {
+        List<detalleFacturaProducto> listaProductoCompleta = new ArrayList<detalleFacturaProducto>();
+        detalleFacturaProducto productoActual = new detalleFacturaProducto();
+        float totalFactura = 0;
+        if(jComboBox2.getSelectedItem() != null && jTextField4.getText() != null)
+        {
+            m_productos producto = prod.getProducto(jComboBox2.getSelectedItem().toString());
+            int cantidadProducto = Integer.parseInt(jTextField4.getText());
+            float total = producto.precio_unitario * cantidadProducto;
+            totalFactura += total;
+            productoActual.producto = producto;
+            productoActual.cantidad = cantidadProducto;
+            listaProductoCompleta.add(productoActual);
+            jTextField1.setText(String.valueOf(total));
+        }
+        if(jComboBox3.getSelectedItem() != null && jTextField5.getText() != null)
+        {
+            m_productos producto = prod.getProducto(jComboBox3.getSelectedItem().toString());
+            int cantidadProducto = Integer.parseInt(jTextField5.getText());
+            float total = producto.precio_unitario * cantidadProducto;
+            totalFactura += total;
+            productoActual.producto = producto;
+            productoActual.cantidad = cantidadProducto;
+            listaProductoCompleta.add(productoActual);
+            jTextField2.setText(String.valueOf(total));
+        }
+        if(jComboBox4.getSelectedItem() != null && jTextField6.getText() != null)
+        {
+            m_productos producto = prod.getProducto(jComboBox4.getSelectedItem().toString());
+            int cantidadProducto = Integer.parseInt(jTextField6.getText());
+            float total = producto.precio_unitario * cantidadProducto;
+            totalFactura += total;
+            productoActual.producto = producto;
+            productoActual.cantidad = cantidadProducto;
+            listaProductoCompleta.add(productoActual);
+            jTextField3.setText(String.valueOf(total));
+        }
+        
+        m_facturas miFactura = new m_facturas();
+        miFactura.agregarFactura(Integer.parseInt(jTextField4.getText()),Integer.parseInt(jTextArea5.getText()), Integer.parseInt(jTextArea6.getText()),jComboBox1.getSelectedItem().toString() , listaProductoCompleta, totalFactura);
     }
 }

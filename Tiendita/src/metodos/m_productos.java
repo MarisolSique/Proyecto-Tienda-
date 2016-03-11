@@ -9,11 +9,11 @@ public class m_productos {
     /**
      * @attribute
      */
-    private String id;
-    private int sid;
-    private String codigo;
-    private String nombre;
-    private Float precio_unitario;
+    public String id;
+    public int sid;
+    public String codigo;
+    public String nombre;
+    public Float precio_unitario;
 
     private static List<m_productos> listaProductos = new ArrayList<m_productos>();
 
@@ -56,5 +56,24 @@ public class m_productos {
         miNuevoProducto.precio_unitario = precio_unitario;
         listaProductos.add(miNuevoProducto);
         return true;
+    }
+    
+    public List<String> getNombresProductos() {
+        m_productos miProducto = new m_productos();
+        List<String> listaNombres = new ArrayList<String>();
+        for(int posicion = 0; posicion <listaProductos.size(); posicion++) {
+            listaNombres.add(listaProductos.get(posicion).nombre);
+        }
+        return listaNombres;
+    }
+    
+    public m_productos getProducto(String nombre) {
+        m_productos productoEncontrado = new m_productos();
+        for(int posicion = 0; posicion < listaProductos.size(); posicion++) {
+            if(nombre == listaProductos.get(posicion).nombre) {
+                productoEncontrado  = listaProductos.get(posicion);
+            }
+        }
+    return productoEncontrado;
     }
 }
