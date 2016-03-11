@@ -42,7 +42,7 @@ public class ClientesEdicion extends JFrame {
     private ButtonGroup grupo2 = new ButtonGroup();
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
-    private String id;
+     Integer id;
     private Integer posicion;
 
     public ClientesEdicion() {

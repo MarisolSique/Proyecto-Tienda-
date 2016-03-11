@@ -105,7 +105,7 @@ public class Opciones extends JFrame {
     {
      EdicionSucursales Edi = new EdicionSucursales();
      Edi.setVisible(true);
-     this.dispose();
+     //this.dispose();
     }
 
     private void jToggleButton2_actionPerformed(ActionEvent e) 
