@@ -1,145 +1,162 @@
 package interfaz;
-
-import java.awt.Color;
+import metodos.*;
+import java.awt.Button;
 import java.awt.Dimension;
-
-import java.awt.Font;
 import java.awt.Rectangle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.List;
+import java.util.ListIterator;
+
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JToggleButton;
-import javax.swing.JToolBar;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class Sucursales extends JFrame {
-    private JLabel jLabel1 = new JLabel();
-    private JToggleButton jToggleButton1 = new JToggleButton();
-    private JToolBar jToolBar1 = new JToolBar();
-    private JToggleButton jToggleButton2 = new JToggleButton();
-    private JToggleButton jToggleButton3 = new JToggleButton();
-    private JToggleButton jToggleButton4 = new JToggleButton();
-    private JToggleButton jToggleButton5 = new JToggleButton();
-    private JToggleButton jToggleButton6 = new JToggleButton();
 
-    public Sucursales() 
-    {       
-        try 
-        {
+    private JButton jButton1 = new JButton();
+    private JButton jButton2 = new JButton();
+    private JButton jButton3 = new JButton();
+    private JTable  jTable1  = new JTable();
+    private JButton jButton4 = new JButton();
+    public static Integer posicion = -1;
+    private Button button1 = new Button();
+
+    public Sucursales() {
+        try {
             jbInit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
-    
+    DefaultTableModel aModel = new DefaultTableModel() {
+        //Tabla read-only
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
 
     private void jbInit() throws Exception {
-        this.getContentPane().setLayout( null );
-        this.setSize(new Dimension(447, 339));
-        this.setTitle("Sucursales ");
-        setLocationRelativeTo(null);
+        this.getContentPane().setLayout(null);
+        this.setSize(new Dimension(692, 326));
+
+        this.setTitle("Sucursales");
         
-        jLabel1.setText("Escoja Sucursal que desea:");
-        jLabel1.setBounds(new Rectangle(90, 15, 265, 30));
-        jLabel1.setFont(new Font("Constantia", 0, 20));
-        jLabel1.setForeground(new Color(49, 49, 255));
-        jToggleButton1.setText("Primera Sucursal");
-        jToggleButton1.setBounds(new Rectangle(55, 80, 140, 20));
-        jToggleButton1.setFont(new Font("Constantia", 0, 13));
-        jToggleButton1.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton1_actionPerformed(e);
+
+        String[] columnNames = { "Nombre","Dirección" };
+        //Configuración tabla
+            jTable1.setFillsViewportHeight(true);
+        //Agregar títulos de columnas
+            aModel.setColumnIdentifiers(columnNames);
+        //Agregar filas
+            
+            List ListaSucursal = m_sucursal.getSucursales();
+            int tLista = ListaSucursal.size();
+        if (tLista > 0) {            
+                for (int i = 0; i < tLista; i++) {
+                    Object[] objects = new Object[5];
+                    m_sucursal a = (m_sucursal)ListaSucursal.get(i);
+                    objects[0] = a.nombre;
+                    objects[1] = a.direccion;
+                    aModel.addRow(objects);
                 }
-            });
-        jToggleButton2.setText("Segunda Sucursal");
-        jToggleButton2.setBounds(new Rectangle(270, 80, 140, 20));
-        jToggleButton2.setFont(new Font("Constantia", 0, 13));
-        jToggleButton2.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton2_actionPerformed(e);
-                }
-            });
-        jToggleButton3.setText("Tercera Sucursal");
-        jToggleButton3.setBounds(new Rectangle(55, 145, 140, 20));
-        jToggleButton3.setFont(new Font("Constantia", 0, 13));
-        jToggleButton3.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton3_actionPerformed(e);
-                }
-            });
-        jToggleButton4.setText("Cuarta Sucursal");
-        jToggleButton4.setBounds(new Rectangle(270, 145, 140, 20));
-        jToggleButton4.setFont(new Font("Constantia", 0, 13));
-        jToggleButton4.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton4_actionPerformed(e);
-                }
-            });
-        jToggleButton5.setText("Quinta Sucursal");
-        jToggleButton5.setBounds(new Rectangle(145, 205, 170, 20));
-        jToggleButton5.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton5_actionPerformed(e);
-                }
-            });
-        jToggleButton6.setText("Regresar a Menu");
-        jToggleButton6.setBounds(new Rectangle(305, 270, 107, 21));
-        jToggleButton6.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    jToggleButton6_actionPerformed(e);
-                }
-            });
-        this.getContentPane().add(jToggleButton6, null);
-        this.getContentPane().add(jToggleButton5, null);
-        this.getContentPane().add(jToggleButton4, null);
-        this.getContentPane().add(jToggleButton3, null);
-        this.getContentPane().add(jToggleButton2, null);
-        this.getContentPane().add(jToggleButton1, null);
-        this.getContentPane().add(jLabel1, null);
+        }else{
+            jTable1.setModel(aModel);
+            
+        }
+        //Añadir modelo personalizado a tabla
+        jTable1.setModel(aModel);
+        
+        
+        JScrollPane scrollPane = new JScrollPane(jTable1);
+        scrollPane.setBounds(new Rectangle(10, 325, 615, 235));
+        scrollPane.setBounds(new Rectangle(20, 320, 615, 235));
+        scrollPane.setBounds(new Rectangle(38, 20, 615, 235));
+
+        button1.setLabel("button1");
+        jButton4.setText("Eliminar Sucursal");
+        jButton4.setBounds(new Rectangle(305, 260, 115, 20));
+        jButton4.setSize(new Dimension(115, 20));
+        jButton4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jButton4_actionPerformed(e);
+            }
+        });
+        jButton3.setText("Editar Sucursal");
+        jButton3.setBounds(new Rectangle(427, 260, 110, 21));
+        jButton3.setSize(new Dimension(110, 21));
+        jButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jButton3_actionPerformed(e);
+            }
+        });
+        jButton2.setText("Nueva Sucursal");
+        jButton2.setBounds(new Rectangle(543, 260, 110, 21));
+        jButton2.setSize(new Dimension(110, 21));
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jButton2_actionPerformed(e);
+            }
+        });
+        jButton1.setText("Regresar...");
+        jButton1.setBounds(new Rectangle(38, 260, 120, 21));
+        jButton1.setActionCommand("");
+        jButton1.setSize(new Dimension(120, 21));
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jButton1_actionPerformed(e);
+            }
+        });
+        scrollPane.setSize(615, 235);
+
+        this.getContentPane().add(jButton4, null);
+        this.getContentPane().add(jButton3, null);
+        this.getContentPane().add(jButton2, null);
+        this.getContentPane().add(jButton1, null);
+        this.getContentPane().add(scrollPane, null);
+        setLocationRelativeTo(null);
+
     }
 
-    private void jToggleButton1_actionPerformed(ActionEvent e) 
-    {
-        PrimeraSucursal prim = new PrimeraSucursal();
-        prim.setVisible(true);
-        this.dispose();    
-    }
-
-    private void jToggleButton2_actionPerformed(ActionEvent e) 
-    {
-        SegundaSucursal seg = new SegundaSucursal();
-        seg.setVisible(true);
+    private void jButton1_actionPerformed(ActionEvent e) {
+        Opciones opc = new Opciones();
+        opc.setVisible(true);
         this.dispose();
     }
 
-    private void jToggleButton3_actionPerformed(ActionEvent e)
-    {
-        TerceraSucursal ter = new TerceraSucursal();
-        ter.setVisible(true);
+    private void jButton2_actionPerformed(ActionEvent e) {
+        SucursalesNuevas cli = new SucursalesNuevas();
+        cli.setVisible(true);
         this.dispose();
     }
 
-    private void jToggleButton4_actionPerformed(ActionEvent e) 
-    {
-        CuartaSucursal cuarta = new CuartaSucursal();
-        cuarta.setVisible(true);
-        this.dispose();
+    private void jButton3_actionPerformed(ActionEvent e) {
+        posicion = jTable1.getSelectedRow();
+        if(posicion>=0){
+            SucursalesEdicion edit = new SucursalesEdicion();
+            edit.setVisible(true);
+            this.dispose();
+        }
     }
 
-    private void jToggleButton5_actionPerformed(ActionEvent e) 
-    {
-        QuintaSucursal quinta = new QuintaSucursal();
-        quinta.setVisible(true);
-        this.dispose();
-    }
-
-    private void jToggleButton6_actionPerformed(ActionEvent e) 
-    {
-        Opciones opsi = new Opciones();
-        opsi.setVisible(true);
-        this.dispose();
+    private void jButton4_actionPerformed(ActionEvent e) {
+        posicion = jTable1.getSelectedRow();
+        if(posicion>=0){
+            m_sucursal cli = new m_sucursal();
+            if( cli.eliminarSucursal(posicion) ){
+                aModel.removeRow(posicion);
+            }else{
+                JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar la sucursal.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
+            }
+        }
     }
 }

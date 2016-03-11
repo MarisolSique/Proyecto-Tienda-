@@ -49,7 +49,7 @@ public class m_cliente {
     /**
      * @attribute
      */
-    public static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
+    private static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
 
     public Boolean eliminarCliente(Integer posicion) {
         m_cliente miClienteActual = (m_cliente)listaClientes.get(posicion);       
@@ -77,6 +77,7 @@ public class m_cliente {
 
         return true;
     }
+
     public Boolean agregarCliente(String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
 
         m_cliente micliente = new m_cliente();
@@ -97,16 +98,24 @@ public class m_cliente {
         return listaClientes;
     }
 
-    public List getNombresClientes(){
-
-        m_cliente micliente = new m_cliente();
-        List<m_cliente> listaNombres = new ArrayList<m_cliente>();
-
+    public static List getNombresClientes(){
+        ArrayList listaNombres = new ArrayList<String>();
+        
         for(int posicion = 0; posicion < listaClientes.size(); posicion++) {
-            micliente.nombre = listaClientes.get(posicion).nombre;
-            listaNombres.add(micliente);
+            listaNombres.add(listaClientes.get(posicion).nombre);
         }
+        
         return listaNombres;
+    }
+
+    public static m_cliente obtenerClientePorID(String id) {
+        m_cliente cliente = new m_cliente();
+        for(m_cliente c : listaClientes) {
+            if(c.id.equals(id)){
+               cliente = (m_cliente) c;
+            }
+        }
+        return cliente;
     }
 
     public static List getSucursales() {

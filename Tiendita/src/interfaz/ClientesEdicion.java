@@ -22,6 +22,8 @@ import javax.swing.SwingConstants;
 
 
 public class ClientesEdicion extends JFrame {
+    String id;
+    private Integer posicion;
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JLabel jLabel3 = new JLabel();
@@ -42,8 +44,7 @@ public class ClientesEdicion extends JFrame {
     private ButtonGroup grupo2 = new ButtonGroup();
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
-     String id;
-    private Integer posicion;
+
 
     public ClientesEdicion() {
         try {

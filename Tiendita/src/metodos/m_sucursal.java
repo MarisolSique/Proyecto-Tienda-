@@ -1,6 +1,7 @@
 package metodos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,7 +17,7 @@ public class m_sucursal {
     /**
      * @attribute
      */
-    String direccion;
+    public String direccion;
     /**
      * @attribute
      */
@@ -62,5 +63,25 @@ public class m_sucursal {
  
     public static String getSucursalID(Integer posicion){
         return listaSucursales.get(posicion).id;
+    }
+
+    public static List getNombresSucursales(){
+        ArrayList listaNombres = new ArrayList<String>();
+        
+        for(int posicion = 0; posicion < listaSucursales.size(); posicion++) {
+            listaNombres.add(listaSucursales.get(posicion).nombre);
+        }
+        
+        return listaNombres;
+    }
+
+    public static m_sucursal obtenerSucursalPorID(String id) {
+        m_sucursal sucursal = new m_sucursal();
+        for(m_sucursal s : listaSucursales) {
+            if(s.id.equals(id)){
+               sucursal = (m_sucursal) s;
+            }
+        }
+        return sucursal;
     }
 }

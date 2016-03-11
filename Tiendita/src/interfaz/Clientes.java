@@ -26,8 +26,8 @@ public class Clientes extends JFrame {
     private JButton jButton3 = new JButton();
     private JTable  jTable1  = new JTable();
     private JButton jButton4 = new JButton();
-    public static Integer posicion = -1;
     private Button button1 = new Button();
+    public static Integer posicion = -1;
 
     public Clientes() {
         try {

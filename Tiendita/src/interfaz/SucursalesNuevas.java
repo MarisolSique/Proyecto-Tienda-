@@ -99,7 +99,7 @@ public class SucursalesNuevas extends JFrame {
             //Si valida, guardar
             m_sucursal suc = new m_sucursal();
             if( suc.agregarSucursal(nombre, direccion) ){
-                EdicionSucursales sucs = new EdicionSucursales();
+                Sucursales sucs = new Sucursales();
                 sucs.setVisible(true);
                 this.dispose();
             }

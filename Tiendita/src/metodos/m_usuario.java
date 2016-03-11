@@ -21,7 +21,7 @@ public class m_usuario{
      /**
       * @attribute
       */
-     public String contrasena;
+     public char[] contrasena;
      /**
       * @attribute
       */
@@ -47,7 +47,7 @@ public class m_usuario{
         return listaUsuarios.get(posicion);
     }
 
-    public Boolean editarUsuario(Integer posicion, String id, String nombre, String correo, String telefono, String direccion, String nit, Boolean usa_cheque, Boolean usa_credito, Vector credito) {
+    public Boolean editarUsuario(Integer posicion, String id, String nombre, String correo, char[] contrasena, Boolean activo, int pos_sucursal){
 
             m_usuario miUsuarioActual = new m_usuario();
                 miUsuarioActual.id = id;
@@ -55,13 +55,13 @@ public class m_usuario{
                 miUsuarioActual.correo = correo;
                 miUsuarioActual.contrasena = contrasena;
                 miUsuarioActual.activo = activo;
-                miUsuarioActual.id_sucursal = id_sucursal;
+                miUsuarioActual.id_sucursal = m_sucursal.getSucursalID(pos_sucursal);
             
                 listaUsuarios.set(posicion,miUsuarioActual);
 
         return true;
     }
-    public Boolean agregarUsuario(String nombre, String correo, String contrasena, Boolean activo, int pos_sucursal) {
+    public Boolean agregarUsuario(String nombre, String correo, char[] contrasena, Boolean activo, int pos_sucursal) {
 
         m_usuario miUsuario = new m_usuario();
 
@@ -71,7 +71,6 @@ public class m_usuario{
         miUsuario.contrasena = contrasena;
         miUsuario.activo = activo;
         miUsuario.id_sucursal = m_sucursal.getSucursalID(pos_sucursal);
-
         return listaUsuarios.add(miUsuario);
     }
     

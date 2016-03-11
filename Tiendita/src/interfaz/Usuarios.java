@@ -24,8 +24,8 @@ public class Usuarios extends JFrame {
     private JButton jButton3 = new JButton();
     private JTable  jTable1  = new JTable();
     private JButton jButton4 = new JButton();
-    public static Integer id = -1;
     private Button button1 = new Button();
+    public static Integer posicion = -1;
 
     public Usuarios() {
         try {
@@ -65,9 +65,8 @@ public class Usuarios extends JFrame {
                     m_usuario a = (m_usuario)listaUsuarios.get(i);
                     objects[0] = a.nombre;
                     objects[1] = a.correo;
-                    objects[2] = a.contrasena;
-                    objects[3] = a.activo;
-                    objects[4] = a.id_sucursal;
+                    objects[2] = a.activo;
+                    objects[3] = m_sucursal.obtenerSucursalPorID(a.id_sucursal).nombre;
                     aModel.addRow(objects);
                 }
         }else{
@@ -141,8 +140,8 @@ public class Usuarios extends JFrame {
     }
 
     private void jButton3_actionPerformed(ActionEvent e) {
-        id = jTable1.getSelectedRow();
-        if(id>=0){
+        posicion = jTable1.getSelectedRow();
+        if(posicion>=0){
             UsuariosEdicion usr = new UsuariosEdicion();
             usr.setVisible(true);
             this.dispose();
@@ -150,11 +149,11 @@ public class Usuarios extends JFrame {
     }
 
     private void jButton4_actionPerformed(ActionEvent e) {
-        id = jTable1.getSelectedRow();
-        if(id>=0){
+        posicion = jTable1.getSelectedRow();
+        if(posicion>=0){
             m_usuario usr = new m_usuario();
-            if( usr.eliminarUsuario(id) ){
-                aModel.removeRow(id);
+            if( usr.eliminarUsuario(posicion) ){
+                aModel.removeRow(posicion);
             }else{
                 JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el usuario.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
             }
