@@ -1,6 +1,7 @@
 package metodos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.Vector;
@@ -106,5 +107,9 @@ public class m_cliente {
             listaNombres.add(micliente);
         }
         return listaNombres;
+    }
+
+    public static List getSucursales() {
+        return Collections.emptyList();
     }
 }

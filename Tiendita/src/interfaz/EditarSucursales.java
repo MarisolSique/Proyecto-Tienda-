@@ -17,6 +17,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import metodos.m_cliente;
+import metodos.m_sucursal;
+
 public class EditarSucursales extends JFrame {
 
 
@@ -84,8 +87,20 @@ public class EditarSucursales extends JFrame {
     }
 
     private void jButton2_actionPerformed(ActionEvent e) {
+        
+        String nombre = jTextField1.getText();    
+        String direccion = jTextArea1.getText();
+    
+        //Validar
+        if( validar.camposVacios(jTextField1) & validar.areasVacias(jTextArea1)  ){
+            //Si valida, actualizar
+            m_sucursal cli = new m_sucursal();
+            if( cli.editarSucursal(posicion,id,nombre, direccion, null) ){
+                EdicionSucursales cliente = new EdicionSucursales();
+                cliente.setVisible(true);
+                this.dispose();
     }
-
+        }}
     private void jButton1_actionPerformed(ActionEvent e) {
     }
 

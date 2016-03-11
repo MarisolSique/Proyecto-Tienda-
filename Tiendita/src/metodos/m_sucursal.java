@@ -8,11 +8,11 @@ public class m_sucursal {
     /**
      * @attribute
      */
-    private String id;
+    public String id;
     /**
      * @attribute
      */
-    String nombre;
+    public String nombre;
     /**
      * @attribute
      */
@@ -33,13 +33,14 @@ public class m_sucursal {
         return listaSucursales.get(posicion);
     }
 
-    public Boolean editarSucursal(Integer id, String nombre, String direccion) {
+    public Boolean editarSucursal(Integer posicion, String id, String nombre, String direccion) {
         
         m_sucursal miSucursalActual = new m_sucursal();
+            miSucursalActual.id = id;
             miSucursalActual.nombre = nombre;
             miSucursalActual.direccion = direccion;
         
-            listaSucursales.set(id,miSucursalActual);
+            listaSucursales.set(posicion, miSucursalActual);
 
         return true;
     }
@@ -56,7 +57,9 @@ public class m_sucursal {
 
     public static List getSucursales(){
         return listaSucursales;
+        
     }
+ 
     public static String getSucursalID(Integer posicion){
         return listaSucursales.get(posicion).id;
     }

@@ -59,12 +59,12 @@ public class EdicionSucursales extends JFrame {
             aModel.setColumnIdentifiers(columnNames);
         //Agregar filas
             
-            List listaClientes = m_cliente.getClientes();
-            int tLista = listaClientes.size();
+            List ListaSucursal = m_sucursal.getSucursales();
+            int tLista = ListaSucursal.size();
         if (tLista > 0) {            
                 for (int i = 0; i < tLista; i++) {
                     Object[] objects = new Object[5];
-                    m_cliente a = (m_cliente)listaClientes.get(i);
+                    m_sucursal a = (m_sucursal)ListaSucursal.get(i);
                     objects[0] = a.nombre;
                     aModel.addRow(objects);
                 }
@@ -83,7 +83,7 @@ public class EdicionSucursales extends JFrame {
 
         button1.setLabel("button1");
         jButton4.setText("Eliminar Sucursal");
-        jButton4.setBounds(new Rectangle(235, 260, 145, 20));
+        jButton4.setBounds(new Rectangle(235, 260, 130, 20));
         jButton4.setSize(new Dimension(110, 21));
         jButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -135,7 +135,7 @@ public class EdicionSucursales extends JFrame {
     private void jButton2_actionPerformed(ActionEvent e) {
         SucursalesNuevas cli = new SucursalesNuevas();
         cli.setVisible(true);
-        //this.dispose();
+        this.dispose();
     }
 
     private void jButton3_actionPerformed(ActionEvent e) {
@@ -150,8 +150,8 @@ public class EdicionSucursales extends JFrame {
     private void jButton4_actionPerformed(ActionEvent e) {
         posicion = jTable1.getSelectedRow();
         if(posicion>=0){
-            m_cliente cli = new m_cliente();
-            if( cli.eliminarCliente(posicion) ){
+            m_sucursal cli = new m_sucursal();
+            if( cli.eliminarSucursal(posicion) ){
                 aModel.removeRow(posicion);
             }else{
                 JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar la sucursal.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
