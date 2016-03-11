@@ -1,4 +1,4 @@
-package interfaz;
+package metodos;
 
 import java.text.DateFormat;
 import java.util.Vector;

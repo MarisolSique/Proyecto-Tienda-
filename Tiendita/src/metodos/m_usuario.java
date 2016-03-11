@@ -1,4 +1,4 @@
-package interfaz;
+package metodos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,27 +9,27 @@ public class m_usuario{
     /**
      * @attribute
      */
-    String id;
+    public String id;
      /**
       * @attribute
       */
-     String nombre;
+     public String nombre;
      /**
       * @attribute
       */
-     String correo;
+     public String correo;
      /**
       * @attribute
       */
-     String contrasena;
+     public String contrasena;
      /**
       * @attribute
       */
-     Boolean activo;
+     public Boolean activo;
      /**
       * @attribute
       */
-     String id_sucursal;
+     public String id_sucursal;
 
 
     /**

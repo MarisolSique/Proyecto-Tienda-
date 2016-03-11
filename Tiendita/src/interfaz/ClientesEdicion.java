@@ -1,5 +1,5 @@
 package interfaz;
-
+import metodos.*;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -42,7 +42,7 @@ public class ClientesEdicion extends JFrame {
     private ButtonGroup grupo2 = new ButtonGroup();
     private JButton jButton1 = new JButton();
     private JButton jButton2 = new JButton();
-     Integer id;
+     String id;
     private Integer posicion;
 
     public ClientesEdicion() {

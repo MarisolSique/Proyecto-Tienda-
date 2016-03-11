@@ -1,6 +1,6 @@
 
 package interfaz;
-
+import metodos.*;
 import java.awt.Color;
 import java.awt.Dimension;
 

@@ -1,4 +1,4 @@
-package interfaz;
+package metodos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,44 +9,46 @@ public class m_cliente {
     /**
      * @attribute
      */
-    String id;
+    public String id;
      /**
       * @attribute
       */
-     String nombre;
+     public String nombre;
      /**
       * @attribute
       */
-     String correo;
+     public String descripcion;
+     
+     public String correo;
      /**
       * @attribute
       */
-     String telefono;
+     public String telefono;
      /**
       * @attribute
       */
-     String direccion;
+     public String direccion;
      /**
       * @attribute
       */
-     String nit;
+     public String nit;
      /**
       * @attribute
       */
-     Boolean usa_cheque;
+     public Boolean usa_cheque;
      /**
       * @attribute
       */
-     Boolean usa_credito;
+     public Boolean usa_credito;
     /**
      * @attribute
      */
-    private Vector credito; 
+    public Vector credito; 
 
     /**
      * @attribute
      */
-    private static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
+    public static List<m_cliente> listaClientes = new ArrayList<m_cliente>();
 
     public Boolean eliminarCliente(Integer posicion) {
         m_cliente miClienteActual = (m_cliente)listaClientes.get(posicion);       

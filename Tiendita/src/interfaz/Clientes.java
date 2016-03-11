@@ -1,5 +1,5 @@
 package interfaz;
-
+import metodos.*;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Rectangle;

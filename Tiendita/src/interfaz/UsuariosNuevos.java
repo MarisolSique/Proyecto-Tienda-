@@ -1,5 +1,5 @@
 package interfaz;
-
+import metodos.*;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Rectangle;
@@ -18,6 +18,7 @@ import javax.swing.JRadioButton;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
 
 public class UsuariosNuevos extends JFrame {
 

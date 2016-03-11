@@ -106,6 +106,6 @@ public class UsuariosEdicion extends JFrame {
 
     private void jToggleButton4_actionPerformed(ActionEvent e) {
         CreacionUsuarios crea = new CreacionUsuarios();
-        crea.setVisible(true);
+        //crea.setVisible(true);
     }
 }

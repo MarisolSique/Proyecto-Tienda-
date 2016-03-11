@@ -1,4 +1,4 @@
-package interfaz;
+package metodos;
 
 import java.util.Vector;
 

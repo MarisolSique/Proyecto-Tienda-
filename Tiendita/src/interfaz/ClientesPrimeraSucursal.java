@@ -1,6 +1,6 @@
 
 package interfaz;
-
+import metodos.*;
 import java.awt.Dimension;
 
 import java.awt.Rectangle;
@@ -136,7 +136,7 @@ public class ClientesPrimeraSucursal extends JFrame {
         //editar cliente
         id = jTable1.getSelectedRow();
         if(id>=0){
-            EdicionCliente cli = new EdicionCliente();
+            ClientesEdicion cli = new ClientesEdicion();
             cli.setVisible(true);
             this.dispose();
         }
