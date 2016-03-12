@@ -118,7 +118,13 @@ public class m_cliente {
         return cliente;
     }
 
-    public static List getSucursales() {
-        return Collections.emptyList();
+    public static m_cliente obtenerClientePorNit(String cl_nit) {
+        m_cliente cliente = null;
+        for(m_cliente c : listaClientes) {
+            if(c.nit.contentEquals(cl_nit)){
+               cliente = (m_cliente) c;
+            }
+        }
+        return cliente;
     }
 }

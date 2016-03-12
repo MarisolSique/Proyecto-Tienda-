@@ -1,4 +1,5 @@
 package interfaz;
+
 import metodos.*;
 import java.awt.Button;
 import java.awt.Dimension;
@@ -8,15 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.util.List;
-import java.util.ListIterator;
 
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Productos extends JFrame {
@@ -52,24 +50,22 @@ public class Productos extends JFrame {
         this.setTitle("Listado de Productos");
         
 
-        String[] columnNames = { "Nombre", "Descripcion", "Costo por Unidad"  };
+        String[] columnNames = { "Código", "Nombre", "Costo por Unidad"  };
         //Configuración tabla
             jTable1.setFillsViewportHeight(true);
         //Agregar títulos de columnas
             aModel.setColumnIdentifiers(columnNames);
         //Agregar filas
             
-            List listaClientes = m_cliente.getClientes();
-            int tLista = listaClientes.size();
+            List listaProductos = m_producto.getProductos();
+            int tLista = listaProductos.size();
         if (tLista > 0) {            
                 for (int i = 0; i < tLista; i++) {
-                    Object[] objects = new Object[5];
-                    m_cliente a = (m_cliente)listaClientes.get(i);
-                    objects[0] = a.nombre;
-                    objects[1] = a.descripcion;
-                    objects[2] = a.nit;
-                    objects[3] = a.usa_cheque;
-                    objects[4] = a.usa_credito;
+                    Object[] objects = new Object[3];
+                    m_producto a = (m_producto)listaProductos.get(i);
+                    objects[0] = a.codigo;
+                    objects[1] = a.nombre;
+                    objects[2] = a.precio_unitario;
                     aModel.addRow(objects);
                 }
         }else{
@@ -86,25 +82,24 @@ public class Productos extends JFrame {
         scrollPane.setBounds(new Rectangle(38, 20, 615, 235));
 
         button1.setLabel("button1");
-        jButton4.setText("Eliminar cliente");
-        jButton4.setBounds(new Rectangle(305, 260, 110, 21));
-        jButton4.setSize(new Dimension(110, 21));
+        jButton4.setText("Eliminar producto");
+        jButton4.setBounds(new Rectangle(270, 260, 125, 20));
+        jButton4.setSize(new Dimension(125, 21));
         jButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jButton4_actionPerformed(e);
             }
         });
-        jButton3.setText("Editar cliente");
-        jButton3.setBounds(new Rectangle(424, 260, 110, 21));
-        jButton3.setSize(new Dimension(110, 21));
+        jButton3.setText("Editar producto");
+        jButton3.setBounds(new Rectangle(403, 260, 125, 20));
+        jButton3.setSize(new Dimension(125, 20));
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jButton3_actionPerformed(e);
             }
         });
-        jButton2.setText("Nuevo cliente");
-        jButton2.setBounds(new Rectangle(543, 260, 110, 21));
-        jButton2.setSize(new Dimension(110, 21));
+        jButton2.setText("Nuevo producto");
+        jButton2.setBounds(new Rectangle(535, 260, 120, 20));
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jButton2_actionPerformed(e);
@@ -137,16 +132,16 @@ public class Productos extends JFrame {
     }
 
     private void jButton2_actionPerformed(ActionEvent e) {
-        ClientesNuevos cli = new ClientesNuevos();
-        cli.setVisible(true);
+        ProductosNuevos pro = new ProductosNuevos();
+        pro.setVisible(true);
         this.dispose();
     }
 
     private void jButton3_actionPerformed(ActionEvent e) {
         posicion = jTable1.getSelectedRow();
         if(posicion>=0){
-            ClientesEdicion cli = new ClientesEdicion();
-            cli.setVisible(true);
+            ProductosEdicion pro = new ProductosEdicion();
+            pro.setVisible(true);
             this.dispose();
         }
     }
@@ -154,11 +149,11 @@ public class Productos extends JFrame {
     private void jButton4_actionPerformed(ActionEvent e) {
         posicion = jTable1.getSelectedRow();
         if(posicion>=0){
-            m_cliente cli = new m_cliente();
-            if( cli.eliminarCliente(posicion) ){
+            m_producto pro = new m_producto();
+            if( pro.eliminarProducto(posicion) ){
                 aModel.removeRow(posicion);
             }else{
-                JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el cliente.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
+                JOptionPane.showMessageDialog(this, "<html><body>No se ha podido eliminar el producto.</body></html>","Error", JOptionPane.WARNING_MESSAGE);            
             }
         }
     }

@@ -9,6 +9,8 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
@@ -143,21 +145,26 @@ public class Opciones extends JFrame {
         m_usuario usr = new m_usuario();
         m_cliente cli = new m_cliente();
         m_sucursal sc = new m_sucursal();
+        m_producto pro = new m_producto();
         for(int i=0;i<10;i++){
+            Random random = new Random();
             //Agregar clientes
-            cli.agregarCliente("Cliente_"+i, "cliente"+i+"@nuevo.com", "12345678", "direccion", "6647912-6", false, false, null);
+            int nit = 1000000 + (int)(Math.random() * ((9999999 - 1000000) + 1));
+            cli.agregarCliente("Cliente_"+i, "cliente"+i+"@nuevo.com", "12345678", "direccion", nit+"-"+random.nextInt(10), false, false, null);
             //Agregar sucursales
             sc.agregarSucursal("Sucursal_"+i, "direccion_"+i);
             //Agregar usuarios
             char[] ps = { 'b', 'u', 'g', 'a', 'b', 'o', 'o' };
             usr.agregarUsuario("Usuario_"+i, "usuario"+i+"@nuevo.com", ps, true,i);
+            //Agregar productos
+            pro.agregarProducto("codigo_"+i, "producto_"+i, Float.parseFloat( random.nextInt(99)+"."+random.nextInt(99) ) );
             
         }
     }
 
     private void jToggleButton5_actionPerformed(ActionEvent e) {
-        Facturación1sucursal fac =  new Facturación1sucursal();
-        fac.setVisible(true);
+        FacturaNueva fact = new FacturaNueva();
+        fact.setVisible(true);
         this.dispose();
     }
 }

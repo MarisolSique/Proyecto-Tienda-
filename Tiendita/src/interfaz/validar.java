@@ -104,4 +104,19 @@ public class validar {
             }
         return seguir;
     }
+   public static Boolean Numerico(JTextField c) {
+            Boolean seguir = true;
+
+            Pattern pattern = Pattern.compile("(\\d*\\.)?\\d+");
+            Matcher matcher = pattern.matcher( c.getText() );
+            if( !matcher.matches() ){
+                c.setBorder(BorderFactory.createLineBorder(Color.red));
+                c.setToolTipText("Ingrese un precio en formato válido");
+                seguir = false;
+            }else{
+                c.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                c.setToolTipText(null);
+            }
+            return seguir;
+        }
 }

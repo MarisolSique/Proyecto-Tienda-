@@ -49,7 +49,7 @@ public class Sucursales extends JFrame {
         this.getContentPane().setLayout(null);
         this.setSize(new Dimension(692, 326));
 
-        this.setTitle("Sucursales");
+        this.setTitle("Listado de Sucursales");
         
 
         String[] columnNames = { "Nombre","Dirección" };
