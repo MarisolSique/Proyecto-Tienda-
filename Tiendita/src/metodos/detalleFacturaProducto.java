@@ -1,6 +1,6 @@
 package metodos;
 
 public class detalleFacturaProducto {
-    public m_productos producto;
+    public m_producto producto;
     public int cantidad;
 }

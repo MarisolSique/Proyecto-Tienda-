@@ -16,11 +16,19 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.text.DecimalFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
+import javax.swing.CellEditor;
+import javax.swing.DefaultCellEditor;
+import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -38,6 +46,8 @@ import javax.swing.JToolBar;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -46,7 +56,7 @@ import metodos.m_cliente;
 
 public class FacturaNueva extends JFrame {
 
-    m_productos prod = new m_productos();
+    m_producto prod = new m_producto();
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JTable jTable1 = new JTable();
@@ -92,6 +102,17 @@ public class FacturaNueva extends JFrame {
             e.printStackTrace();
         }
     }
+    /******************************************************************/
+    CellEditorListener ChangeNotification = new CellEditorListener() {
+            public void editingCanceled(ChangeEvent e) {
+                System.out.println("The user canceled editing.");
+            }
+
+            public void editingStopped(ChangeEvent e) {
+                System.out.println("The user stopped editing successfully.");
+            }
+        };
+    /******************************************************************/
 
     DefaultTableModel aModel = new DefaultTableModel() {
         //Tabla read-only
@@ -216,7 +237,7 @@ public class FacturaNueva extends JFrame {
         jTextField7.setBounds(new Rectangle(120, 170, 485, 25));
         jTextField8.setBounds(new Rectangle(120, 205, 485, 25));
 
-        aModel.addTableModelListener(new TableModelListener() {
+       /* aModel.addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
                     int col = jTable2.getEditingColumn();
@@ -226,14 +247,62 @@ public class FacturaNueva extends JFrame {
                             m_producto producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
                             if(producto != null){
                                 //Descripcion
-                                //jTable2.setValueAt(producto.nombre, row, col+1);
+                                jTable2.setValueAt(producto.nombre, row, col+1);
                                 //Precio unitario
                                 jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+3);
                             }
                         }
                     }                
             }
-        });
+        });*/
+       //jTable2.editingStopped(arg0);
+       Action action = new AbstractAction()
+       {
+           public void actionPerformed(ActionEvent e)
+           {
+               TableCellListener tcl = (TableCellListener)e.getSource();
+               /*System.out.println("Row   : " + tcl.getRow());
+               System.out.println("Column: " + tcl.getColumn());
+               System.out.println("Old   : " + tcl.getOldValue());
+               System.out.println("New   : " + tcl.getNewValue());*/
+               m_producto producto = new m_producto();
+               
+               int col = jTable2.getEditingColumn();
+               int row = jTable2.getEditingRow();
+               if(row >= 0 & col >= 0){
+           switch(col){
+           case 0:
+               producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
+               if(producto != null){
+                   //Descripcion
+                   jTable2.setValueAt(producto.nombre, row, col+1);
+                   //Cantidad
+                   jTable2.setValueAt(1, row, col+2);
+                   //Precio unitario
+                   jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+3);
+                   //Total
+                   jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+4);
+               }
+               break;
+           case 2:
+                Float cant = Float.parseFloat(jTable2.getValueAt(row, 2).toString() );
+                Float pu = Float.parseFloat(jTable2.getValueAt(row, 3).toString() );
+                DecimalFormat df = new DecimalFormat("#.##");
+                
+                jTable2.setValueAt(df.format(cant*pu).toString(), row, 4);
+               
+               break;
+           }
+                   /*if(col == 0){
+                       producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
+                   }*/
+                   
+               }    
+           }
+       };
+
+       TableCellListener tcl = new TableCellListener(jTable2, action);
+       
 
         String[] columnNames = { "Código", "Descripcion", "Cantidad", "P. Unidad", "Total" };
         //Configuración tabla
