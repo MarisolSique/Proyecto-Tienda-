@@ -18,38 +18,27 @@ import java.awt.event.ActionListener;
 
 import java.text.DecimalFormat;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
-import javax.swing.CellEditor;
-import javax.swing.DefaultCellEditor;
-import javax.swing.InputVerifier;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JEditorPane;
-import javax.swing.JFormattedTextField;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollBar;
+
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
-import javax.swing.JSplitPane;
+
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
-import javax.swing.JToolBar;
-import javax.swing.JTree;
+
 import javax.swing.SwingConstants;
 
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
+
 import javax.swing.table.DefaultTableModel;
 
 import metodos.m_cliente;
@@ -77,8 +66,6 @@ public class FacturaNueva extends JFrame {
     private JSeparator jSeparator5 = new JSeparator();
     private JSeparator jSeparator6 = new JSeparator();
     private JTextArea jTextArea8 = new JTextArea();
-    private JTextArea jTextArea9 = new JTextArea();
-    private JTextArea jTextArea10 = new JTextArea();
     private JLabel jLabel11 = new JLabel();
     private JLabel jLabel12 = new JLabel();
     private JToggleButton jToggleButton1 = new JToggleButton();
@@ -94,6 +81,8 @@ public class FacturaNueva extends JFrame {
     private JTextField jTextField7 = new JTextField();
     private JTextField jTextField8 = new JTextField();
     private JTable jTable2 = new JTable();
+    private JLabel jLabel10 = new JLabel();
+    private JLabel jLabel15 = new JLabel();
 
     public FacturaNueva() {
         try {
@@ -185,14 +174,6 @@ public class FacturaNueva extends JFrame {
                 jTextArea8_keyReleased(e);
             }
         });
-        jTextArea9.setBounds(new Rectangle(30, 480, 380, 30));
-        jTextArea9.setCaretColor(SystemColor.activeCaptionBorder);
-        jTextArea9.setBackground(new Color(215, 215, 215));
-        jTextArea9.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
-        jTextArea10.setBounds(new Rectangle(410, 480, 200, 30));
-        jTextArea10.setCaretColor(SystemColor.activeCaptionBorder);
-        jTextArea10.setBackground(new Color(215, 215, 215));
-        jTextArea10.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
         jLabel11.setText("Original: Cliente            ");
         jLabel11.setBounds(new Rectangle(25, 595, 205, 25));
         jLabel11.setFont(new Font("Constantia", 1, 12));
@@ -237,25 +218,7 @@ public class FacturaNueva extends JFrame {
         jTextField7.setBounds(new Rectangle(120, 170, 485, 25));
         jTextField8.setBounds(new Rectangle(120, 205, 485, 25));
 
-       /* aModel.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                    int col = jTable2.getEditingColumn();
-                    int row = jTable2.getEditingRow();
-                    if(row >= 0 & col >= 0){
-                        if(col == 0){
-                            m_producto producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
-                            if(producto != null){
-                                //Descripcion
-                                jTable2.setValueAt(producto.nombre, row, col+1);
-                                //Precio unitario
-                                jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+3);
-                            }
-                        }
-                    }                
-            }
-        });*/
-       //jTable2.editingStopped(arg0);
+
        Action action = new AbstractAction()
        {
            public void actionPerformed(ActionEvent e)
@@ -269,34 +232,47 @@ public class FacturaNueva extends JFrame {
                
                int col = jTable2.getEditingColumn();
                int row = jTable2.getEditingRow();
+               DecimalFormat df = new DecimalFormat("#.##");
+
                if(row >= 0 & col >= 0){
-           switch(col){
-           case 0:
-               producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
-               if(producto != null){
-                   //Descripcion
-                   jTable2.setValueAt(producto.nombre, row, col+1);
-                   //Cantidad
-                   jTable2.setValueAt(1, row, col+2);
-                   //Precio unitario
-                   jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+3);
-                   //Total
-                   jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+4);
-               }
-               break;
-           case 2:
-                Float cant = Float.parseFloat(jTable2.getValueAt(row, 2).toString() );
-                Float pu = Float.parseFloat(jTable2.getValueAt(row, 3).toString() );
-                DecimalFormat df = new DecimalFormat("#.##");
-                
-                jTable2.setValueAt(df.format(cant*pu).toString(), row, 4);
-               
-               break;
-           }
-                   /*if(col == 0){
-                       producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
-                   }*/
                    
+                   switch(col){
+                   case 0:
+                       producto = m_producto.obtenerProductoPorCodigo((String) jTable2.getValueAt(row, col));
+                       if(producto != null){
+                           //Descripcion
+                           jTable2.setValueAt(producto.nombre, row, col+1);
+                           //Cantidad
+                           jTable2.setValueAt(1, row, col+2);
+                           //Precio unitario
+                           jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+3);
+                           //Total
+                           jTable2.setValueAt(Float.toString(producto.precio_unitario) , row, col+4);
+                           Object[] objects = new Object[5];
+                           objects[0] = null;
+                           objects[1] = null;
+                           objects[2] = null;
+                           objects[3] = null;
+                           objects[4] = null;
+                           aModel.addRow(objects);
+                       }
+                       break;
+                   case 2:
+                        Float cant = Float.parseFloat(jTable2.getValueAt(row, 2).toString() );
+                        Float pu = Float.parseFloat(jTable2.getValueAt(row, 3).toString() );
+                        
+                        jTable2.setValueAt(df.format(cant*pu).toString(), row, 4);
+                       break;
+                   }
+                    
+                    Float suma = 0.0f;
+                    for(int i=0;i<jTable2.getRowCount()-1;i++){
+                        suma+= Float.parseFloat( jTable2.getValueAt(i, 4).toString() );
+                    }
+                    String total = df.format(suma);
+                    m_facturas conversion = new m_facturas();
+                    jLabel10.setText( conversion.numerosALetras(total,true) );
+                    jLabel15.setText( "Q."+total );
                }    
            }
        };
@@ -309,8 +285,8 @@ public class FacturaNueva extends JFrame {
             jTable2.setFillsViewportHeight(true);
         //Agregar títulos de columnas
             aModel.setColumnIdentifiers(columnNames);
-        //Agregar filas
-                for (int i = 0; i < 20; i++) {
+        //Agregar primera fila
+                //for (int i = 0; i < 20; i++) {
                     Object[] objects = new Object[5];
                     
                     objects[0] = null;
@@ -319,7 +295,7 @@ public class FacturaNueva extends JFrame {
                     objects[3] = null;
                     objects[4] = null;
                     aModel.addRow(objects);
-                }
+                //}
 
         
         //Añadir modelo personalizado a tabla
@@ -333,8 +309,21 @@ public class FacturaNueva extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(jTable2);       
         scrollPane.setBounds(new Rectangle(25, 285, 600, 190));
-        
-        
+
+
+        jLabel15.setBounds(new Rectangle(410, 480, 200, 30));
+        jLabel15.setBackground(new Color(215, 215, 215));
+        jLabel15.setOpaque(true);
+        jLabel15.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel15.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+        jLabel15.setFont(new Font("Tahoma", 1, 11));
+        jLabel10.setBounds(new Rectangle(30, 480, 380, 30));
+        jLabel10.setBackground(new Color(215, 215, 215));
+        jLabel10.setOpaque(true);
+        jLabel10.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel10.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+        this.getContentPane().add(jLabel15, null);
+        this.getContentPane().add(jLabel10, null);
         this.getContentPane().add(jTextField8, null);
         this.getContentPane().add(jTextField7, null);
         this.getContentPane().add(jTextArea12, null);
@@ -349,8 +338,6 @@ public class FacturaNueva extends JFrame {
         this.getContentPane().add(jToggleButton1, null);
         this.getContentPane().add(jLabel12, null);
         this.getContentPane().add(jLabel11, null);
-        this.getContentPane().add(jTextArea10, null);
-        this.getContentPane().add(jTextArea9, null);
         this.getContentPane().add(jTextArea8, null);
         this.getContentPane().add(jSeparator6, null);
         this.getContentPane().add(jSeparator5, null);

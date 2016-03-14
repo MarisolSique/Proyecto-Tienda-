@@ -2,11 +2,7 @@
 package interfaz;
 
 import java.awt.Dimension;
-import java.awt.Rectangle;
-
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
