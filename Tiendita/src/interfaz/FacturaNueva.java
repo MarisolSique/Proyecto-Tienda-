@@ -5,6 +5,8 @@ import java.awt.event.KeyAdapter;
 
 import java.awt.event.KeyEvent;
 
+import javax.swing.JComboBox;
+
 import metodos.*;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,6 +19,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.text.DecimalFormat;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -46,6 +52,9 @@ import metodos.m_cliente;
 public class FacturaNueva extends JFrame {
 
     m_producto prod = new m_producto();
+    private Float suma = 0.0f;
+    private String total = "";
+    private String id_cliente = "";
     private JLabel jLabel1 = new JLabel();
     private JLabel jLabel2 = new JLabel();
     private JTable jTable1 = new JTable();
@@ -83,6 +92,8 @@ public class FacturaNueva extends JFrame {
     private JTable jTable2 = new JTable();
     private JLabel jLabel10 = new JLabel();
     private JLabel jLabel15 = new JLabel();
+    private JComboBox jComboBox1 = new JComboBox();
+
 
     public FacturaNueva() {
         try {
@@ -218,16 +229,18 @@ public class FacturaNueva extends JFrame {
         jTextField7.setBounds(new Rectangle(120, 170, 485, 25));
         jTextField8.setBounds(new Rectangle(120, 205, 485, 25));
 
-
+//Popular datos
+        //Fecha
+        Calendar cal = Calendar.getInstance();
+        jTextArea4.setText(Integer.toString(cal.get(Calendar.DAY_OF_MONTH)));
+        jTextArea5.setText(Integer.toString(cal.get(Calendar.MONTH)+1));
+        jTextArea6.setText(Integer.toString(cal.get(Calendar.YEAR)));
+        //Tabla de productos
        Action action = new AbstractAction()
        {
            public void actionPerformed(ActionEvent e)
            {
                TableCellListener tcl = (TableCellListener)e.getSource();
-               /*System.out.println("Row   : " + tcl.getRow());
-               System.out.println("Column: " + tcl.getColumn());
-               System.out.println("Old   : " + tcl.getOldValue());
-               System.out.println("New   : " + tcl.getNewValue());*/
                m_producto producto = new m_producto();
                
                int col = jTable2.getEditingColumn();
@@ -265,11 +278,10 @@ public class FacturaNueva extends JFrame {
                        break;
                    }
                     
-                    Float suma = 0.0f;
                     for(int i=0;i<jTable2.getRowCount()-1;i++){
                         suma+= Float.parseFloat( jTable2.getValueAt(i, 4).toString() );
                     }
-                    String total = df.format(suma);
+                    total = df.format(suma);
                     m_facturas conversion = new m_facturas();
                     jLabel10.setText( conversion.numerosALetras(total,true) );
                     jLabel15.setText( "Q."+total );
@@ -373,46 +385,30 @@ public class FacturaNueva extends JFrame {
     }
 
     private void jToggleButton3_actionPerformed(ActionEvent e) {
-        /*
+        
         List<detalleFacturaProducto> listaProductoCompleta = new ArrayList<detalleFacturaProducto>();
         detalleFacturaProducto productoActual = new detalleFacturaProducto();
-        float totalFactura = 0;
-        if(jComboBox2.getSelectedItem() != null && jTextField4.getText() != null)
-        {
-            m_productos producto = prod.getProducto(jComboBox2.getSelectedItem().toString());
-            int cantidadProducto = Integer.parseInt(jTextField4.getText());
-            float total = producto.precio_unitario * cantidadProducto;
-            totalFactura += total;
+
+        for (int count = 0; count < jTable2.getRowCount()-1; count++){
+            m_producto producto = m_producto.obtenerProductoPorCodigo(jTable2.getValueAt(count, 0).toString());
             productoActual.producto = producto;
-            productoActual.cantidad = cantidadProducto;
+            productoActual.cantidad = Integer.parseInt(jTable2.getValueAt(count, 2).toString());
             listaProductoCompleta.add(productoActual);
-            jTextField1.setText(String.valueOf(total));
-        }
-        if(jComboBox3.getSelectedItem() != null && jTextField5.getText() != null)
-        {
-            m_productos producto = prod.getProducto(jComboBox3.getSelectedItem().toString());
-            int cantidadProducto = Integer.parseInt(jTextField5.getText());
-            float total = producto.precio_unitario * cantidadProducto;
-            totalFactura += total;
-            productoActual.producto = producto;
-            productoActual.cantidad = cantidadProducto;
-            listaProductoCompleta.add(productoActual);
-            jTextField2.setText(String.valueOf(total));
-        }
-        if(jComboBox4.getSelectedItem() != null && jTextField6.getText() != null)
-        {
-            m_productos producto = prod.getProducto(jComboBox4.getSelectedItem().toString());
-            int cantidadProducto = Integer.parseInt(jTextField6.getText());
-            float total = producto.precio_unitario * cantidadProducto;
-            totalFactura += total;
-            productoActual.producto = producto;
-            productoActual.cantidad = cantidadProducto;
-            listaProductoCompleta.add(productoActual);
-            jTextField3.setText(String.valueOf(total));
         }
         
+        
         m_facturas miFactura = new m_facturas();
-        miFactura.agregarFactura(Integer.parseInt(jTextField4.getText()),Integer.parseInt(jTextArea5.getText()), Integer.parseInt(jTextArea6.getText()),"jComboBox1.getSelectedItem().toString()" , listaProductoCompleta, totalFactura);*/
+        if( miFactura.agregarFactura(Integer.parseInt(jTextArea4.getText()),
+                                     Integer.parseInt(jTextArea5.getText()),
+                                     Integer.parseInt(jTextArea6.getText()),
+                                     id_cliente,
+                                     listaProductoCompleta,
+                                     Float.parseFloat(total)) )
+        {
+          Opciones op = new Opciones();
+          op.setVisible(true);
+          this.dispose();
+        }
     }
 
 
@@ -420,9 +416,11 @@ public class FacturaNueva extends JFrame {
         String nit = jTextArea8.getText();
         m_cliente cliente = m_cliente.obtenerClientePorNit(nit.trim());
         if(cliente != null){
+            id_cliente = cliente.id;
             jTextField7.setText(cliente.nombre);
             jTextField8.setText(cliente.direccion);
         }else{
+            id_cliente = "";
             jTextField7.setText(null);
             jTextField8.setText(null);
         }

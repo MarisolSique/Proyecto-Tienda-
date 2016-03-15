@@ -1,4 +1,7 @@
 package interfaz;
+
+import javax.swing.JButton;
+
 import metodos.*;
 import java.awt.Button;
 import java.awt.Dimension;
@@ -26,6 +29,7 @@ public class Opciones extends JFrame {
     private JToggleButton jToggleButton8 = new JToggleButton();
     private Button button1 = new Button();
     private JToggleButton jToggleButton5 = new JToggleButton();
+    private JButton jButton1 = new JButton();
 
 
     public Opciones() 
@@ -92,12 +96,20 @@ public class Opciones extends JFrame {
             }
         });
         jToggleButton5.setText("Facturacion");
-        jToggleButton5.setBounds(new Rectangle(215, 235, 150, 55));
+        jToggleButton5.setBounds(new Rectangle(120, 220, 150, 55));
         jToggleButton5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jToggleButton5_actionPerformed(e);
             }
         });
+        jButton1.setText("Reporte de facturaci\u00f3n");
+        jButton1.setBounds(new Rectangle(325, 220, 150, 55));
+        jButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                jButton1_actionPerformed(e);
+            }
+        });
+        this.getContentPane().add(jButton1, null);
         this.getContentPane().add(jToggleButton5, null);
         this.getContentPane().add(button1, null);
         this.getContentPane().add(jToggleButton8, null);
@@ -164,6 +176,12 @@ public class Opciones extends JFrame {
 
     private void jToggleButton5_actionPerformed(ActionEvent e) {
         FacturaNueva fact = new FacturaNueva();
+        fact.setVisible(true);
+        this.dispose();
+    }
+
+    private void jButton1_actionPerformed(ActionEvent e) {
+        FacturasReporte fact = new FacturasReporte();
         fact.setVisible(true);
         this.dispose();
     }
